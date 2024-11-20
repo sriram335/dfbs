@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="ownerForm" type="magazine.control.form.DfbsOwnerForm"/>
+    <form-bean name="startForm" type="magazine.control.form.DfbsStartForm"/>
+    <form-bean name="permitForm" type="magazine.control.form.DfbsPermitForm"/>
+    <form-bean name="contactForm" type="magazine.control.form.DfbsContactForm"/> 
+    <form-bean name="shopCartForm" type="magazine.control.form.ShoppingCartForm"/>
+     <form-bean name="magUserForm" type="magazine.control.form.MagazineUsersForm"/>
+     <form-bean name="inspectionForm" type="magazine.control.form.FireInspectionForm"/>
+    <form-bean name="violationForm" type="magazine.control.form.FireViolationForm"/>
+   
+   </form-beans>
+  <global-forwards>
+    <forward name="index" path="start.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  <action-mappings>
+    <action path="/start" type="magazine.control.action.DfbsStartAction"
+            name="startForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/start.jsp"/>
+        <forward name="renewBy" path="/renewBy.jsp"/>
+       <forward name="renewByStreetNumber" path="/ownerListDisplayAll.jsp"/>
+       <forward name="renewByPermitNumber" path="/ownerListDisplayAll.jsp"/>
+       <forward name="newOwner" path="/newOwner.jsp"/>
+       <forward name="oldOwner" path="/ownerListDisplayAll.jsp"/>
+       <forward name="goToUpload" path="/uploadFile.jsp"/>
+       <forward name="sendEmailForm" path="/sendEmailForm.jsp"/>
+       <forward name="newPermitList" path="/newPermitList.jsp"/>
+       <forward name="updateSavePermit" path="/updateSavePermit.jsp"/>
+    </action>
+    <action path="/ownerListDisplay" type="magazine.control.action.DfbsOwnerAction"
+            name="ownerForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="ownerListDisplayAll" path="/ownerListDisplayAll.jsp"/>
+        <forward name="renew" path="/ownerRenew.jsp"/>
+        <forward name="renewPermit" path="/permitRenew.jsp"/>
+         <forward name="newPermit" path="/newPermit.jsp"/> 
+         <forward name="newOwner" path="/newOwner.jsp"/>
+         <forward name="editOwner" path="/editOwner.jsp"/>
+         <forward name="updateSaveOwner" path="/updateSaveOwner.jsp"/>
+    </action>
+    
+      <action path="/permit" type="magazine.control.action.DfbsPermitAction"
+            name="permitForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="renewPermit" path="/permitRenew.jsp"/> 
+       <forward name="newPermit" path="/newPermit.jsp"/> 
+       <forward name="editPermit" path="/editPermit.jsp"/> 
+       <forward name="pdf" path="/pdf.do" contextRelative="true"/>
+       <forward name="goToUpload" path="/uploadFile.jsp"/>
+       <forward name="viewDetails" path="/viewDetails.jsp"/>
+        <forward name="logOn" path="/loginPage.jsp"/>
+       <forward name="updatePermit" path="/updatePermit.jsp"/> 
+        <forward name="newPermitList" path="/newPermitList.jsp"/>
+         <forward name="ownerListDisplayAll" path="/ownerListDisplayAll.jsp"/>
+         <forward name="updateSavePermit" path="/updateSavePermit.jsp"/>
+     </action>
+     
+        <action path="/contact" type="magazine.control.action.DfbsContactAction"
+            name="contactForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="updateContact" path="/updateContact.jsp"/>  
+        <forward name="insertContact" path="/insertContact.jsp"/> 
+        <forward name="newContact" path="/newContact.jsp"/> 
+        <forward name="editContact" path="/editContact.jsp"/>
+        <forward name="updateSaveContact" path="/updateSaveContact.jsp"/>
+     </action>
+     
+    <action path="/checkout"
+            type="magazine.control.action.MagazineCheckoutAction"
+            name="shopCartForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="renewPermit" path="/permitRenew.jsp"/>
+      <forward name="start" path="/start.jsp"/>
+      <forward name="editPermit" path="/editPermit.jsp"/> 
+    </action>
+    
+    <action path="/completeCheckout"
+            type="magazine.control.action.MagazineCompleteCheckoutAction"
+            name="ownerForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/start.jsp"/>
+    </action>
+   
+   <action path="/inspection" type="magazine.control.action.FireInspectionAction"
+            name="inspectionForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="inspectionList" path="/inspectionList.jsp"/> 
+       <forward name="updateInspection" path="/updateInspection.jsp"/> 
+       <forward name="newInspection" path="/newInspection.jsp"/>
+     </action>
+     
+     <action path="/violation" type="magazine.control.action.FireViolationAction"
+            name="violationForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="violationList" path="/violationList.jsp"/> 
+       <forward name="updateViolation" path="/updateViolation.jsp"/> 
+       <forward name="newViolation" path="/newViolation.jsp"/>
+     </action>
+    
+      <action path="/magazineUser" type="magazine.control.action.MagazineUsersAction"
+            name="magUserForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="addNewUser" path="/addNewUser.jsp"/>
+      <forward name="updateUser" path="/updateUser.jsp"/>
+      <forward name="updatePassword" path="/updatePassword.jsp"/>
+      <forward name="loginUser" path="/loginUser.jsp"/>
+     <forward name="userList" path="/userList.jsp"/>
+     <forward name="userAccounts" path="/userAccounts.jsp"/>
+     <forward name="manageAccounts" path="/manageAccounts.jsp"/>
+    </action>
+    
+  </action-mappings>
+</struts-config>

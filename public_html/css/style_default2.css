@@ -1,0 +1,634 @@
+/* -----------------------------------------------------------------------------
+iGMS - Default Stylesheet
+Author: Dennis Leonardo (May 2005)
+------------------------------------------------------------------------------*/
+
+@import url("undohtml.css");
+
+body {
+    /*background: #fff url(/dfbs/hazmat/img/form_back.gif) repeat-x ;*/
+    color: #000; 
+    font-family: verdana, arial, sans-serif;
+    margin: 0px 20px 20px 20px;
+    padding: 0px;
+    font-size: small;
+    line-height: 1.5em;
+    text-align:center;
+}
+
+#pageBox {
+  text-align:left;
+  margin-bottom: 30px;
+}
+
+
+/* =HEADER
+------------------------------------------------------------------------------*/
+
+#headBox {
+  height: 35px;
+  padding: 0px;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+#headBox h1{
+  font-family: verdana, arial, sans-serif;
+  font-weight: bold;
+  font-size: large;
+  margin: 0px;
+  padding: 0px;
+  text-align: left;
+}
+#headBox h1 a:link { text-decoration: none;}
+#headBox h1 a:visited { text-decoration: none; }
+#headBox h1 a:hover { text-decoration: none;  background: none;} 
+#headBox h1 a:active { text-decoration: none; }
+
+
+
+/* =FOOTER
+------------------------------------------------------------------------------*/
+
+/* =MAIN
+------------------------------------------------------------------------------*/
+
+#mainBox { 
+  
+  margin: 0px 0px 20px 20px;
+  padding: 0px;
+}
+
+#sideContentFluid { 
+  
+  float: right;
+  width: 33%;
+  margin-top: 10px;
+  padding: 10px 10px 10px 10px;
+}
+
+
+#mainContentFluid { 
+  float: left;
+  width: 64%;
+}
+
+#rightContentFluid { 
+  
+  float: right;
+  width: 45%;
+  padding: 10px;
+}
+
+
+#leftContentFluid { 
+  float: left;
+  width: 45%;
+  padding: 10px;
+}
+
+
+
+.styled {
+  background: #e8e8e8 url(/dfbs/hazmat/img/form_back.jpg) bottom left repeat-x ; 
+}
+.styledBox {
+  padding:20px;
+  margin: 20px;
+}
+
+.styled2 {
+ background: #e8e8e8 url(/dfbs/hazmat/img/form_back2.jpg) bottom left repeat-x ; 
+}
+.cornerTopLeft {
+  background: url(/dfbs/hazmat/img/corner_top_left.gif) top left no-repeat; 
+  width: 100%;
+  height: 50px;
+}
+.cornerTopRight {
+  background:  url(/dfbs/hazmat/img/corner_top_right.gif) top right no-repeat; 
+  width: 100%;
+  height: 50px;
+  
+}
+
+div.clearer {
+    clear: both;
+    line-height: 0px;
+    height: 0px;
+}
+
+
+/* =LINKS
+------------------------------------------------------------------------------*/
+a:link { text-decoration: underline; color: blue; } 
+a:visited { text-decoration: underline; color: blue; } 
+a:active { text-decoration: underline; color: blue;  } 
+a:hover { text-decoration: underline; color: #fff; background:  #3c3c3c;} 
+a:link.selected { text-decoration: underline; color: #fff; background:  #3c3c3c; } 
+a:visited.selected { text-decoration: underline; color: #fff; background:  #3c3c3c; } 
+
+#exit1,#exit2 {
+  text-align: right;
+   background: url(/hs/img/exit_arrow.gif) top right no-repeat; 
+   font-weight: bold;
+  
+}
+
+
+#exit1 a:link,#exit2 a:link {
+  padding: 0px 25px 0px 25px;
+  margin: 0px;
+  font-weight: bold;
+}
+#exit1 a:visited,#exit2 a:visited {
+  padding: 0px 25px 0px 25px;
+}
+
+#exit1 a:hover,#exit2 a:hover {
+  padding: 0px 25px 0px 25px;
+}
+
+
+
+   
+.charNav {
+    border: 1px solid #c5c5c5;
+    background: #efefef;
+    padding: 10px;
+    margin-bottom: 20px;
+  
+}
+
+.navBox {
+    border: 1px solid #c5c5c5;
+    background: #efefef;
+    padding: 10px;
+    margin-bottom: 20px;
+  
+}
+
+
+.charNav ul {
+ 
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  display: inline; 
+}
+.charNav ul li {
+  display: inline;
+  margin: 0px;
+  padding: 5px;
+}
+
+.charNav ul li.selected { 
+   font-size:x-large;
+   font-weight: bold;
+}
+
+.stepNav {
+    border: 1px solid #c5c5c5;
+    background: #efefef;
+    padding: 10px;
+    margin-bottom: 20px;
+    
+}
+
+.stepNav ul {
+ 
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+.stepNav ul li {
+  list-style-type: none;
+  margin: 0px;
+  padding: 5px;
+}
+
+.stepNav ul li.selected { 
+   font-size:large;
+   font-weight: bold;
+}
+
+
+/* =H
+------------------------------------------------------------------------------*/
+h1 {
+    font-family: georgia, times, serif;
+    font-size: xx-large;
+    font-weight: normal;
+}
+h2 {
+  margin: 30px 0px 30px 0px;
+  font-size: large;
+  font-weight: bold;
+}
+h3 {
+    font-size: large;
+    font-weight: normal;
+    margin: 20px 0px 20px 0px;
+}
+h4 {
+    font-size: small;
+    font-weight: bold;
+}
+h3.total {
+  font-weight: bold;
+}
+
+/* =TABLE
+------------------------------------------------------------------------------*/
+table {
+  border: 1px solid #A9D3F7;
+  margin-top: 10px;
+}
+table.noBorder .rowHeader th {background: none;}
+th {
+ border-bottom: 1px solid #A9D3F7;
+  border-right: 1px solid #A9D3F7;
+  padding-right: 5px;
+  vertical-align: top;
+  font-size: small;
+  font-weight: bold;
+  text-align: center;
+  background: #C0DFEC;
+}
+.rowHeader th {
+  text-align: right;
+  background: #EFF7D4;
+}
+td {
+  border-bottom: 1px solid #A9D3F7;
+  border-right: 1px solid #A9D3F7;
+  padding-right: 5px;
+  vertical-align: top;
+  padding-left: 10px;
+  vertical-align: top;
+  font-size: 90%;
+}
+td.label {
+  text-align: right;
+  font-weight: bold;
+}
+td.complete a:link {
+  text-decoration: none;
+}
+td.complete a:visited {
+  text-decoration: none;
+}
+td.complete a:hover {
+  text-decoration: none;
+}
+/* Sortable tables */
+table.sortable a.sortheader {
+    font-weight: bold;
+    text-decoration: none;
+}
+table.sortable span.sortarrow {
+    font-weight: bolder;
+    text-decoration: none;
+}
+caption {
+  text-align: left;
+  font-weight: bold;
+}
+table.noBorder { border: none; }
+table.noBorder td { border: none; padding-top: 10px;}
+table.noBorder tr { border: none; }
+table.noBorder th { border: none; padding-top: 10px; }
+
+table.withBorder {
+  border: 1px solid #A9D3F7;
+  margin-top: 10px;
+}
+
+table.withBorder th {
+  border-bottom: 1px solid #A9D3F7;
+  border-right: 1px solid #A9D3F7;
+  padding-right: 5px;
+  vertical-align: top;
+  font-size: small;
+  font-weight: bold;
+  text-align: center;
+  background: #C0DFEC;
+}
+
+table.withBorder td {
+  border-bottom: 1px solid #A9D3F7;
+  border-right: 1px solid #A9D3F7;
+  padding-right: 5px;
+  vertical-align: top;
+  padding-left: 10px;
+  vertical-align: top;
+  font-size: 90%;
+}
+
+tr.crossout td {
+  
+  text-decoration:line-through;
+  
+}
+
+
+/* =FORM
+------------------------------------------------------------------------------*/
+
+input {
+  font-family: courier, monospace;
+  border: 1px solid #e5e5e5;
+}
+input.switch {
+  border: none;
+}
+
+select {
+  font-family: verdana, sans-serif;
+  border: 1px solid #e5e5e5;
+  font-size: small;
+}
+
+
+
+/* =LISTING
+------------------------------------------------------------------------------*/
+
+.listing {
+  padding: 15px;
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+
+.listing h3 {
+  font-family: arial,sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  
+}
+
+.listing p {
+  font-size: small;
+  margin-top: 5px;
+}
+.listingIndent {
+  margin-left: 20px;
+}
+.listingInfo {
+  margin-top: 2px;
+  font-weight: normal;
+  font-size: x-small;
+}
+
+
+
+
+
+/* =LIST
+------------------------------------------------------------------------------*/
+
+.sideContentList ul li{
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0px 0px 20px;
+}
+
+.sideContentList ul li img{
+  margin-bottom: -2px;
+}
+
+.sideContentList ul li .eventTitle a{
+  font-family: verdana, arial, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0;
+  margin: 20px 0px 0px 0px;
+}
+
+ul li{ list-style-type: circle; }
+
+li {margin-left: 15px;}
+
+ul.blockList li {
+  margin-top: 10px;
+}
+
+ul.inlineList{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+ul.inlineList li {
+  display: inline;
+  margin: 0px;
+  padding: 0px 20px 0px 20px;
+}
+
+dl.modified dt { 
+  margin: 15px 0px 10px 0px;
+}
+
+dl.modified dd { 
+  margin: 5px;
+}
+
+dl.modified dt { 
+  font-weight: bold;
+   
+}
+
+/* =IMG
+------------------------------------------------------------------------------*/
+
+.iconNotice {
+background-color:#691768;
+background-image: url(/dfbs/hazmat/img/clearbits/bg_rounded.gif);
+background-repeat: no-repeat;
+margin-top: 5px;
+}
+
+.iconTrue {
+background-color:#008C00;
+background-image: url(/dfbs/hazmat/img/clearbits/bg_rounded.gif);
+background-repeat: no-repeat;
+margin-top: 5px;
+}
+
+.iconFalse {
+background-color:#FF1A00;
+background-image: url(/dfbs/hazmat/img/clearbits/bg_rounded.gif);
+background-repeat: no-repeat;
+margin-top: 5px;
+}
+
+.icon {
+background-color:#000;
+background-image: url(/dfbs/hazmat/img/clearbits/bg_rounded.gif);
+background-repeat: no-repeat;
+}
+
+.icon2 {
+  background-color:#505050;
+  background-image: url(/dfbs/hazmat/img/clearbits/bg_rounded.gif);
+  background-repeat: no-repeat;
+}
+
+.icon3 {
+  background-color:#a5a5a5;
+  background-image: url(/dfbs/hazmat/img/clearbits/bg_rounded.gif);
+  background-repeat: no-repeat;
+}
+
+
+/* =BUTTON
+------------------------------------------------------------------------------*/
+
+.buttons a, , .buttons a:visited , .buttons button{
+    display:block;
+    float:left;
+    margin:0 7px 0 0;
+    background-color:#f5f5f5;
+    border:1px solid #dedede;
+    border-top:1px solid #eee;
+    border-left:1px solid #eee;
+
+    font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+    font-size:100%;
+    line-height:130%;
+    text-decoration:none;
+    font-weight:bold;
+    color:#565656;
+    cursor:pointer;
+    padding:5px 10px 6px 7px; /* Links */
+}
+.buttons button{
+    width:auto;
+    overflow:visible;
+    padding:4px 10px 3px 7px; /* IE6 */
+}
+.buttons button[type]{
+    padding:5px 10px 5px 7px; /* Firefox */
+    line-height:17px; /* Safari */
+}
+.buttons button img, .button a img{
+    margin:0 3px -3px 0;
+    padding:0;
+    border:none;
+    width:16px;
+    height:16px;
+}
+
+
+
+button:hover, .buttons a:hover {
+    background-color:#dff4ff;
+    border:1px solid #c2e1ef;
+    color:#336699;
+}
+.buttons a:active{
+    background-color:#6299c5;
+    border:1px solid #6299c5;
+    color:#fff;
+}
+
+
+
+buttons.positive, .buttons a.positive{
+    color:#529214;
+}
+.buttons a.positive:hover,a.positive:visited, button.positive:hover{
+    background-color:#E6EFC2;
+    border:1px solid #C6D880;
+    color:#529214;
+}
+.buttons a.positive:active{
+    background-color:#529214;
+    border:1px solid #529214;
+    color:#fff;
+}
+
+
+
+.buttons a.negative, button.negative{
+    color:#d12f19;
+}
+.buttons a.negative:hover,a.positive:visited, button.negative:hover{
+    background:#fbe3e4;
+    border:1px solid #fbc2c4;
+    color:#d12f19;
+}
+.buttons a.negative:active{
+    background-color:#d12f19;
+    border:1px solid #d12f19;
+    color:#fff;
+}
+
+
+
+/* =MISC
+------------------------------------------------------------------------------*/
+
+.lastItem { background-color: #edffcf; }
+
+.last { background-color: #edffcf; }
+
+
+.message { color: green; }
+
+.required { color: #B20130; }
+
+.currentDoc { background-color: #FAD98F; }
+
+.row2 { background-color: #eee; }
+
+.row1 { background-color: #fff; }
+
+.rowError { background-color: #FF6A88; }
+
+
+
+.error { color: red; }
+
+
+.notice { color: #691768; }
+
+.info { font-size: x-small; }
+
+
+blockquote  {
+    margin: 0px;
+    padding: 0px;
+}
+
+blockquote, q {
+    quotes: none;
+    padding-top: 15px;
+    padding-left: 35px;
+    display: block;
+    background: url(/dfbs/hazmat/img/quote-end.jpg) no-repeat;
+}
+
+.yellowBackground  { background-color: #fffccc; }
+.purpleBackground { background-color: #E5DAF7; }
+.greenBackground  { background-color: #B5F7D2; }
+.orangeBackground  { background-color: #FFC8A2; }
+.grayBackground  { background-color: #efefef; }
+.redBackground { background-color: #FF6A88; }
+
+
+.messageBox {
+   border: solid #A9D3F7 1px;
+   padding: 10px;
+   background-color: #EFF7D4;
+   margin-bottom: 20px;
+}
+.messageBox #title {
+  font-family: georgia, times, serif;
+  font-size: x-large;
+  font-weight: normal;
+  
+}
+
+

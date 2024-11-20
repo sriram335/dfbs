@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to
+END
+CaptchaServiceSingleton.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/CaptchaServiceSingleton.java
+END
+HsTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsTask.java
+END
+HsEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsEntity.java
+END
+HsTypeValue.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsTypeValue.java
+END
+HsUpload.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsUpload.java
+END
+HsAddress.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsAddress.java
+END
+HsURL.java
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsURL.java
+END
+HsPhone.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsPhone.java
+END
+HsFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsFilter.java
+END
+HsCharNav.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsCharNav.java
+END
+HsCompleteContact.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsCompleteContact.java
+END
+HsSystemUpload.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsSystemUpload.java
+END
+HsOrg.java
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsOrg.java
+END
+HsCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsCode.java
+END
+HsUser.java
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsUser.java
+END
+HsTransferObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsTransferObject.java
+END
+HsContact.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsContact.java
+END
+HsEmail.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hs/to/HsEmail.java
+END

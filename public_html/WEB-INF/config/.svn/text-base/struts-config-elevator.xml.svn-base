@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="ownerForm" type="elevator.control.form.DfbsOwnerForm"/>
+    <form-bean name="elevForm" type="elevator.control.form.elevatorForm"/>
+    <form-bean name="inspForm" type="elevator.control.form.elevInspectionForm"/>
+     <form-bean name="testForm" type="elevator.control.form.elevTestsForm"/>
+      <form-bean name="appForm" type="elevator.control.form.elevApplicationForm"/>
+     <form-bean name="cartForm" type="elevator.control.form.ShoppingCartForm"/> 
+      <form-bean name="contForm" type="elevator.control.form.elevServiceContractorForm"/> 
+   </form-beans>
+  <global-forwards>
+    <forward name="index" path="/main.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  
+  <action-mappings>
+   <action path="/start" type="elevator.control.action.elevStartAction"
+            name="ownerForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/start.jsp"/>
+       <forward name="search" path="/elevatorSearch.jsp"/>
+       <forward name="newOwner" path="/newOwner.jsp"/>
+       
+    </action>
+    <action path="/owner" type="elevator.control.action.DfbsOwnerAction"
+            name="ownerForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="newOwner" path="/newOwner.jsp"/>
+       <forward name="selectOwner" path="/selectOwner.jsp"/>
+        <forward name="viewOwner" path="/viewOwner.jsp"/>
+         <forward name="newElevator" path="/newElevator.jsp"/>
+         <forward name="search" path="/elevatorSearch.jsp"/>
+    </action>
+     <action path="/elevator" type="elevator.control.action.elevatorAction"
+            name="elevForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="preAlteration" path="/preAlteration.jsp"/>
+       <forward name="newElevator" path="/newElevator.jsp"/>
+       <forward name="preInstallation" path="/preInstallation.jsp"/>
+       <forward name="search" path="/elevatorSearch.jsp"/>
+       <forward name="updateElevator" path="/updateElevator.jsp"/>
+       <forward name="start" path="/start.jsp"/>
+       <forward name="upload" path="/upload.jsp"/>
+       <forward name="uploadTest" path="/uploadTest.jsp"/> 
+       <forward name="processFiles" path="/processFiles.jsp"/>
+     </action>
+     <action path="/inspection" type="elevator.control.action.elevInspectionAction"
+            name="inspForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="elevNewInspection" path="/elevNewInspection.jsp"/>
+       <forward name="elevUpdateInspection" path="/elevUpdateInspection.jsp"/>
+       <forward name="inspectionList" path="/inspectionList.jsp"/>
+       <forward name="search" path="/elevatorSearch.jsp"/>
+     </action>
+     <action path="/elevTests" type="elevator.control.action.elevTestsAction"
+            name="testForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="elevNewTests" path="/elevTests.jsp"/>
+       <forward name="elevUpdateTests" path="/elevUpdateTests.jsp"/>
+       <forward name="updateTest" path="/updateTest.jsp"/>
+       <forward name="elevUpdateInspection" path="/elevUpdateInspection.jsp"/>
+     </action>
+     <action path="/application" type="elevator.control.action.elevatorApplicationAction"
+            name="appForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="applyAlteration" path="/applyAlteration.jsp"/>
+       <forward name="search" path="/elevatorSearch.jsp"/>
+       <forward name="preAlteration" path="/preAlteration.jsp"/>
+       <forward name="preInstallation" path="/preInstallation.jsp"/>
+        <forward name="updateApplication" path="/updateApplication.jsp"/>
+     </action>
+    <action path="/checkout"
+            type="elevator.control.action.elevCheckoutAction"
+            name="cartForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/start.jsp"/>
+    </action>
+    
+    <action path="/completeCheckout"
+            type="elevator.control.action.elevCompleteCheckoutAction"
+            name="cartForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+    </action>
+    <action path="/servContractor" type="elevator.control.action.elevServContractorAction"
+            name="contForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="newContractor" path="/newContractor.jsp"/>
+       <forward name="selectContractor" path="/selectContractor.jsp"/>
+        <forward name="updateContractor" path="/updateContractor.jsp"/>
+         <forward name="renewContractor" path="/renewContractor.jsp"/>
+          <forward name="uploadCont" path="/uploadCont.jsp"/>
+          <forward name="goToUpload" path="/uploadCont.jsp"/>
+   </action>
+    <action path="/checkoutCont"
+            type="elevator.control.action.ElevContCheckoutAction"
+            name="cartForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="selectContractor" path="/selectContractor.jsp"/>
+       <forward name="newContractor" path="/newContractor.jsp"/>
+        <forward name="renewContractor" path="/renewContractor.jsp"/>
+    </action>
+    
+    <action path="/completeCheckoutCont"
+            type="elevator.control.action.ElevContCompleteCheckoutAction"
+            name="contForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+    </action>
+  </action-mappings>
+</struts-config>

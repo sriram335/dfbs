@@ -1,0 +1,230 @@
+package cigarette.data;
+import cigarette.to.*;
+import cigarette.data.*;
+
+public class CigarettePermitSQL 
+{
+   public final static String SELECT_NEXT_APP_ID =
+    "select cigarette_application_id.NEXTVAL from dual";
+    public final static String INSERT_COMPANY =
+   " INSERT INTO CIGARETTE_COMPANY( COMPANY_ID ,COMPANY_NAME,ADDRESS1,ADDRESS2,CITY,STATE ,ZIP,ZIP2,PHONE,FAX,PROVINCE,COUNTRY)   "   +
+   " VALUES(?,?,?,?,?,?,?,?,?,?,?,?)" ;
+     public final static String UPDATE_COMPANY =
+   " UPDATE CIGARETTE_COMPANY SET PHONE=?,FAX=? WHERE COMPANY_ID=?" ;
+    public final static String UPDATE_CHANGE_COMPANY =
+   " UPDATE CIGARETTE_COMPANY SET COMPANY_NAME=?,ADDRESS1=?,ADDRESS2=?,CITY=?,STATE =?,ZIP=?,ZIP2=?,PHONE=?,FAX=?,PROVINCE=?,COUNTRY=? WHERE COMPANY_ID=?" ;
+    public final static String INSERT_COMPANY_AGENT =
+   " INSERT INTO CIGARETTE_AUTH_AGENT( AGENT_ID,AUTH_AGENT_NAME,ADDRESS1,ADDRESS2,CITY,STATE,ZIP,ZIP2,PHONE,FAX,EMAIL,COMPANY_ID)   "   +
+   " VALUES(?,?,?,?,?,?,?,?,?,?,?,?)" ;
+    public final static String UPDATE_COMPANY_AGENT =
+   " UPDATE CIGARETTE_AUTH_AGENT SET PHONE=?,FAX=?,EMAIL=?,END_DATE=TO_DATE(?,'MM/DD/YYYY') WHERE AGENT_ID=?" ;
+    public final static String UPDATE_CHANGE_COMPANY_AGENT =
+   " UPDATE CIGARETTE_AUTH_AGENT SET END_DATE=TO_DATE(?,'MM/DD/YYYY'),AUTH_AGENT_NAME=?,ADDRESS1=?,ADDRESS2=?,CITY=?,STATE=?,ZIP=?,ZIP2=?,PHONE=?,FAX=?,EMAIL=? WHERE AGENT_ID=?" ;
+   public final static String SELECT_NEXT_COMPANY_ID =
+    "select cigarette_company_id.NEXTVAL from dual";
+   
+    public final static String SELECT_NEXT_AGENT_ID =
+    "select cigarette_agent_id.NEXTVAL from dual";
+    public final static String INSERT_APPLICATION =
+   " INSERT INTO CIGARETTE_COMPANY_APPLICATION(APPLICATION_ID,APPLICATION_DATE,APPLICATION_TYPE,CONTACT_PERSON,CONTACT_TITLE, " +
+   " PHONE,FAX,EMAIL,COMPANY_ID,RECEIPT_ID,COMMENTS,APPLICATION_STATUS      )   "   +
+   " VALUES(?,SYSDATE,?,?,?,?,?,?,?,?,?,'Pending') ";  
+   
+    public final static String SELECT_NEXT_BRAND_ID =
+    "select cigarette_brand_id.NEXTVAL from dual";
+   
+    public final static String INSERT_BRAND =
+   " INSERT INTO CIGARETTE_DETAILS(CIGARETTE_ID,CIGARETTE_BRAND,CIGARETTE_STYLE,CIGARETTE_LENGTH,CIGARETTE_CIRCUMFERENCE,CIGARETTE_MARKING,CIGARETTE_FLAVOR, " +
+   " CIGARETTE_FILTER,CIGARETTE_PACKAGE,APPLICATION_ID,CIGARETTE_FLAVOR_OTHER  )   "   +
+   " VALUES(?,?,?,?,?,?,?," +
+   "?,?,?,?)" ;  
+   public final static String INSERT_BRAND_RENEWAL =
+   " INSERT INTO cigarette_details_renewal(CIGARETTE_ID,CIGARETTE_BRAND,CIGARETTE_STYLE,CIGARETTE_LENGTH,CIGARETTE_CIRCUMFERENCE,CIGARETTE_MARKING,CIGARETTE_FLAVOR, " +
+   " CIGARETTE_FILTER,CIGARETTE_PACKAGE,APPLICATION_ID,CIGARETTE_FLAVOR_OTHER  )   "   +
+   " VALUES(?,?,?,?,?,?,?," +
+   "?,?,?,?)" ;  
+    public final static String DELETE_BRAND_RENEWAL =
+   " DELETE FROM cigarette_details_renewal " ; 
+    public final static String SELECT_FEES_CIGARETTE =
+    "select " +
+    "decode ( " +
+    "CANNED_CODE, " +
+    "'CIGARETTE_FEE',1, " +
+      "'0' " +
+    ") PERMIT_REQUEST_TYPE,  " +
+    "TO_NUMBER(ABBREVIATION) " +
+    "from DFBS_CODE " +
+    "where CANNED_CODE IN ('CIGARETTE_FEE')" +
+    " union select 0 ,0 from dual" ;
+    
+      public final static String INSERT_PERMIT_TRANSACTION =
+    "insert into DFBS_FEE " +
+    "(TRANSACTION_ID,AMOUNT_PAID,DUE,DESCRIPTION, " +
+    "OWNER_ID,UNIQUE_NUMBER,LAST_NAME,POST_DATE,DIVISION,SSN) " +
+    "values(?,0,?,UPPER(?),?,?,?,SYSDATE,6,?) ";
+    
+     public final static String SELECT_NEXT_TRANSACTION_ID =
+    "select TRANSACTION_ID.NEXTVAL from dual";
+   
+    
+     public final static String SELECT_PERMIT_STRING = 
+    " select TO_CHAR(sysdate,'MMYY') from dual";
+    
+     public final static String SELECT_FIRST_LETTER_OPTIONS =
+     "select distinct LETTER, count(*) \"COUNT\"  from ( " +
+     " select substr(company_name,1,1) \"LETTER\" " +
+     " from cigarette_company WHERE PROVINCE IS NULL" +
+     ") group by LETTER order by LETTER ";
+     
+     
+    public final static String SELECT_COMPANY_BY_LETTER =
+    " select COMPANY_NAME,ADDRESS1,ADDRESS2,CITY,STATE ,ZIP,ZIP2,PHONE,FAX ,COMPANY_ID,PROVINCE,COUNTRY " +
+    " from cigarette_company " +
+    " where  UPPER(substr(COMPANY_NAME,1,1))=UPPER(?) AND PROVINCE IS NULL order by 2";
+    
+    
+     public final static String SELECT_APPLICATION_BY_COMPANY =
+    " SELECT APPLICATION_ID,APPLICATION_DATE,APPLICATION_TYPE,CONTACT_PERSON,CONTACT_TITLE, " +
+   "  PHONE,FAX,EMAIL,COMPANY_ID,COMMENTS ,PERMIT_ISSUE_DATE,PERMIT_EXPIRATION_DATE,APPLICATION_STATUS   " +
+    " FROM CIGARETTE_COMPANY_APPLICATION WHERE COMPANY_ID=?  order by application_date desc ";
+     
+      public final static String SELECT_MAX_APPLICATION_ID =
+    " SELECT MAX(APPLICATION_ID) " +
+    " FROM CIGARETTE_COMPANY_APPLICATION WHERE COMPANY_ID=?   ";
+      
+    public final static String SELECT_APPLICATION_BY_EXPIRATION =
+    " SELECT  upper(A.EMAIL),A.APPLICATION_ID ,C.COMPANY_NAME,A.PERMIT_EXPIRATION_DATE  " +
+    " FROM CIGARETTE_COMPANY_APPLICATION A ,CIGARETTE_COMPANY  C " +
+    " WHERE A.COMPANY_ID=C.COMPANY_ID AND C.PROVINCE IS NULL AND "+
+    " PERMIT_EXPIRATION_DATE <=SYSDATE+180 AND EMAIL_STATUS IS NULL AND APPLICATION_STATUS='Approved' " +
+    " and C.company_id not in (select company_id from CIGARETTE_COMPANY_APPLICATION where " + 
+    "      application_type='3YearRenewal')" +
+      " UNION SELECT upper(A.EMAIL),A.APPLICATION_ID ,C.COMPANY_NAME,A.PERMIT_EXPIRATION_DATE  " +
+  " FROM CIGARETTE_COMPANY_APPLICATION A ,CIGARETTE_COMPANY  C " +
+  " WHERE A.COMPANY_ID=C.COMPANY_ID AND AND C.PROVINCE IS NULL AND "+
+    " PERMIT_EXPIRATION_DATE <=SYSDATE+30 AND EMAIL_STATUS='FIRST' AND APPLICATION_STATUS='Approved'  "  +
+  " and C.company_id not in (select company_id from CIGARETTE_COMPANY_APPLICATION where " + 
+  "      application_type='3YearRenewal')" ;
+    
+    public final static String SELECT_COMPANY_BY_ID =
+    " SELECT COMPANY_NAME,ADDRESS1,ADDRESS2,CITY,STATE ,ZIP,ZIP2,PHONE,FAX,COMPANY_ID,PROVINCE,COUNTRY  " +
+    " FROM dfbs.cigarette_company WHERE COMPANY_ID =?  "; 
+      public final static String SELECT_COMPANY_APP_COUNT =
+    " SELECT COUNT(*)  " +
+    " FROM dfbs.cigarette_company_application WHERE COMPANY_ID =?  "; 
+     public final static String SELECT_AGENT_BY_COMPANY_ID =
+    " SELECT AUTH_AGENT_NAME,ADDRESS1,ADDRESS2,CITY,STATE,ZIP,ZIP2,PHONE,FAX,EMAIL,COMPANY_ID,AGENT_ID  " +
+    " FROM cigarette_auth_agent WHERE COMPANY_ID =?  AND END_DATE IS NULL"; 
+    public final static String SELECT_APPLICATION_BY_ID =
+    " SELECT APPLICATION_ID,APPLICATION_DATE,APPLICATION_TYPE,CONTACT_PERSON,CONTACT_TITLE, " +
+   " PHONE,FAX,EMAIL,COMPANY_ID,COMMENTS ,PERMIT_ISSUE_DATE,PERMIT_EXPIRATION_DATE,APPLICATION_STATUS  " +
+    " FROM CIGARETTE_COMPANY_APPLICATION WHERE APPLICATION_ID=?   ";
+     public final static String UPDATE_APPLICATION_BY_ID =
+    " UPDATE CIGARETTE_COMPANY_APPLICATION SET COMMENTS =?,PERMIT_ISSUE_DATE=TO_DATE(?,'MM/DD/YYYY')," +
+    " PERMIT_EXPIRATION_DATE=TO_DATE(?,'MM/DD/YYYY'),APPLICATION_STATUS=?  " +
+    " WHERE APPLICATION_ID=?   ";
+    
+    public final static String SELECT_BRAND_BY_ID =
+    " SELECT CIGARETTE_ID,CIGARETTE_BRAND,CIGARETTE_STYLE,CIGARETTE_LENGTH,CIGARETTE_CIRCUMFERENCE,CIGARETTE_MARKING,CIGARETTE_FLAVOR, " +
+   " CIGARETTE_FILTER,CIGARETTE_PACKAGE,APPLICATION_ID,CIGARETTE_FLAVOR_OTHER FROM CIGARETTE_DETAILS WHERE CIGARETTE_ID  =? ";   
+    public final static String UPDATE_BRAND =
+    " UPDATE CIGARETTE_DETAILS SET CIGARETTE_PACKAGE=?,CIGARETTE_BRAND=?,CIGARETTE_STYLE=?,CIGARETTE_LENGTH=?,CIGARETTE_CIRCUMFERENCE=?,CIGARETTE_MARKING=?,CIGARETTE_FLAVOR=?, " +
+   " CIGARETTE_FILTER=? ,CIGARETTE_FLAVOR_OTHER=? WHERE CIGARETTE_ID  =? ";   
+   
+     public final static String SELECT_BRAND_BY_APP =
+    " SELECT CIGARETTE_ID,CIGARETTE_BRAND,CIGARETTE_STYLE,CIGARETTE_LENGTH,CIGARETTE_CIRCUMFERENCE,CIGARETTE_MARKING,CIGARETTE_FLAVOR, " +
+   " CIGARETTE_FILTER,CIGARETTE_PACKAGE,APPLICATION_ID,CIGARETTE_FLAVOR_OTHER FROM CIGARETTE_DETAILS WHERE APPLICATION_ID  =? order by 2 ";   
+     
+      public final static String SELECT_BRANDS_FOR_3YEAR_RENEWAL =
+    " SELECT B.CIGARETTE_ID,B.CIGARETTE_BRAND,B.CIGARETTE_STYLE,B.CIGARETTE_LENGTH,B.CIGARETTE_CIRCUMFERENCE,B.CIGARETTE_MARKING,B.CIGARETTE_FLAVOR, " +
+   " B.CIGARETTE_FILTER,B.CIGARETTE_PACKAGE,B.APPLICATION_ID,B.CIGARETTE_FLAVOR_OTHER FROM CIGARETTE_DETAILS B,CIGARETTE_COMPANY_APPLICATION  A"+
+    " WHERE A.APPLICATION_ID  =B.APPLICATION_ID AND A.COMPANY_ID=?  AND A.APPLICATION_STATUS='Approved' order by B.CIGARETTE_BRAND,B.CIGARETTE_STYLE ";   
+      public final static String SELECT_BRANDS_FOR_3YEAR_RENEWAL_UPDATE =
+    " SELECT B.CIGARETTE_ID,B.CIGARETTE_BRAND,B.CIGARETTE_STYLE,B.CIGARETTE_LENGTH,B.CIGARETTE_CIRCUMFERENCE,B.CIGARETTE_MARKING,B.CIGARETTE_FLAVOR, " +
+   " B.CIGARETTE_FILTER,B.CIGARETTE_PACKAGE,B.APPLICATION_ID,B.CIGARETTE_FLAVOR_OTHER FROM CIGARETTE_DETAILS_RENEWAL B order by B.CIGARETTE_BRAND,B.CIGARETTE_STYLE";     
+    
+     public final static String SELECT_APPLICATION_BRANDS =
+    " select distinct b.CIGARETTE_BRAND from CIGARETTE_COMPANY_APPLICATION a,CIGARETTE_DETAILS b "+
+    " WHERE a.APPLICATION_ID  =b.APPLICATION_ID  and a.application_id=? ";
+    
+     public final static String SELECT_STATE_OPTIONS =
+    "select state_initial,state_name from dfbs_state where state_id<=51 order by state_name ";
+     public final static String SELECT_CIG_APP_OPTIONS =
+    "select abbreviation,description  from dfbs_code  where canned_code='CIGARETTE_APP_TYPE' AND DIVISION=6 ";
+     public final static String SELECT_CIG_APP_STATUS_OPTIONS =
+    "select abbreviation,description  from dfbs_code  where canned_code='CIGARETTE_APP_STATUS' AND DIVISION=6 ";
+     public final static String SELECT_CIG_FLAVOR_OPTIONS =
+    "select DISTINCT abbreviation,description  from dfbs_code  where canned_code='CIGARETTE_FLAVOR' AND DIVISION=6  order by 1 ";
+     public final static String SELECT_CIG_FILTER_OPTIONS =
+    "select abbreviation,description  from dfbs_code  where canned_code='CIGARETTE_FILTER' AND DIVISION=6 ";
+     public final static String SELECT_CIG_PACKAGE_OPTIONS =
+    "select abbreviation,description  from dfbs_code  where canned_code='CIGARETTE_PACKAGE' AND DIVISION=6 ";
+    
+     public final static String SELECT_COUNT_BRAND_COMPANY =
+    " SELECT COUNT(*) FROM CIGARETTE_COMPANY C,CIGARETTE_COMPANY_APPLICATION A ,CIGARETTE_DETAILS B " +
+    " WHERE C.COMPANY_ID=A.COMPANY_ID AND A.APPLICATION_ID=B.APPLICATION_ID AND B.CIGARETTE_BRAND  =?  AND C.COMPANY_ID=? " +
+    " AND PERMIT_EXPIRATION_DATE >= SYSDATE   ";  
+     public final static String SELECT_COUNT_BRAND_COMPANY_3YEAR_RENEWAL =
+    " SELECT COUNT(*) FROM CIGARETTE_COMPANY C,CIGARETTE_COMPANY_APPLICATION A ,CIGARETTE_DETAILS B " +
+    " WHERE C.COMPANY_ID=A.COMPANY_ID AND A.APPLICATION_ID=B.APPLICATION_ID AND B.CIGARETTE_BRAND  =?  AND C.COMPANY_ID=? " +
+    " AND APPLICATION_DATE >=TO_DATE('02012012','MMDDYYYY')";   
+     public final static String SELECT_CIG_COMPANY_OPTIONS =
+    "select DISTINCT abbreviation,abbreviation  from dfbs_code  where canned_code='CIGARETTE_FAMILY' AND DIVISION=6  AND description is not null order by 1";
+     public final static String SELECT_BRANDS =
+    "select distinct description,description  from dfbs_code  where canned_code='CIGARETTE_FAMILY' AND DIVISION=6  AND description is not null" +
+    " and abbreviation=?  order by 1";
+     public final static String SELECT_BRANDS_ALL =
+    "select 'New Brand','New Brand' from dual";
+     public final static String SELECT_ACCT_DUES =
+      "SELECT to_char(due),to_char(amount_paid),to_char(feespd_receipt_number),to_char(post_date,'mm/dd/yyyy'),description " +
+      " FROM dfbs_fee WHERE unique_number=? and post_date >'15-DEC-08'  and due>0 ORDER BY POST_DATE ASC";
+       public final static String SELECT_ACCT_PENDING =
+      "SELECT to_char(due) " +
+      " FROM dfbs_fee WHERE unique_number=? and feespd_receipt_number is null and due >0 and post_date >'15-DEC-08' ORDER BY POST_DATE ASC";
+      
+       public final static String INSERT_NEW_BRAND =
+       " INSERT INTO DFBS_CODE values(CODE_ID.NEXTVAL,'CIGARETTE_FAMILY',?,6,NULL,?,NULL)";
+        public final static String INSERT_CIG_USERS =
+        " INSERT INTO CIGARETTE_COMPANY_USERS(USER_ID,USER_FIRST_NAME,USER_LAST_NAME,USER_PASSWORD,STATUS,PASSWORD_EXPIRATION_DATE, " +
+        " USER_LOGIN_ID,USER_PHONE,COMPANY_ID ) VALUES(?,?,?,?,?,TO_DATE(?,'MM/DD/YYYY'),?,?,?)";
+         public final static String UPDATE_CIG_USERS =
+         " UPDATE CIGARETTE_COMPANY_USERS SET USER_FIRST_NAME=?,USER_LAST_NAME=?,USER_PASSWORD=?,STATUS=?," +
+         " PASSWORD_EXPIRATION_DATE=TO_DATE(?,'MM/DD/YYYY'), USER_LOGIN_ID=?,USER_PHONE=? WHERE USER_ID=?";
+          public final static String UPDATE_CIG_USER_PASSWORD =
+         " UPDATE CIGARETTE_COMPANY_USERS SET USER_PASSWORD=UPPER(?)," +
+         " PASSWORD_EXPIRATION_DATE=SYSDATE+90 WHERE USER_ID=UPPER(?)";
+          public final static String SELECT_CIG_USERS =
+          " SELECT  USER_ID,USER_FIRST_NAME,USER_LAST_NAME,USER_PASSWORD,STATUS,PASSWORD_EXPIRATION_DATE, " +
+        " USER_LOGIN_ID,USER_PHONE,COMPANY_ID FROM CIGARETTE_COMPANY_USERS WHERE STATUS='A' AND COMPANY_ID=?";
+         public final static String SELECT_CIG_USERS_BY_ID =
+          " SELECT  USER_ID,USER_FIRST_NAME,USER_LAST_NAME,USER_PASSWORD,STATUS,PASSWORD_EXPIRATION_DATE, " +
+        " USER_LOGIN_ID,USER_PHONE,COMPANY_ID FROM CIGARETTE_COMPANY_USERS WHERE STATUS='A' AND USER_ID=?";
+         public final static String SELECT_NEXT_CIGARETTE_USER_ID =
+         "select CIGARETTE_USER_ID.NEXTVAL from dual";
+         public final static String VERIFY_CIG_USERS =
+          " SELECT  USER_ID,USER_FIRST_NAME,USER_LAST_NAME,USER_PASSWORD,STATUS,PASSWORD_EXPIRATION_DATE, " +
+        " USER_LOGIN_ID,USER_PHONE,COMPANY_ID,PASSWORD_EXPIRATION_DATE-SYSDATE FROM CIGARETTE_COMPANY_USERS "+
+        " WHERE UPPER(USER_LOGIN_ID)=UPPER(?) and STATUS='A' AND UPPER(USER_PASSWORD)=UPPER(?) AND COMPANY_ID=?";
+        public final static String EMAIL_CIG_USERS_PASSWORD =
+          " SELECT  USER_ID,USER_FIRST_NAME,USER_LAST_NAME,USER_PASSWORD,STATUS,PASSWORD_EXPIRATION_DATE, " +
+        " USER_LOGIN_ID,USER_PHONE,COMPANY_ID,PASSWORD_EXPIRATION_DATE-SYSDATE FROM CIGARETTE_COMPANY_USERS " +
+        " WHERE upper(USER_LOGIN_ID)=UPPER(?) and STATUS='A' ";
+     public final static String SELECT_USER_FIRST_LETTER_OPTIONS =
+         "select distinct LETTER, count(*) \"COUNT\"  from ( " +
+         " select substr(USER_LOGIN_ID,1,1) \"LETTER\" " +
+         " from cigarette_company_users " +
+         ") group by LETTER order by LETTER ";
+      public final static String CIG_USERS_ACCOUNTS =
+          " SELECT  USER_ID,USER_FIRST_NAME,USER_LAST_NAME,USER_PASSWORD,STATUS,PASSWORD_EXPIRATION_DATE, " +
+        " USER_LOGIN_ID,USER_PHONE,COMPANY_ID,PASSWORD_EXPIRATION_DATE-SYSDATE FROM CIGARETTE_COMPANY_USERS " +
+        " WHERE UPPER(USER_LOGIN_ID)=UPPER(?) and STATUS='A' AND UPPER(USER_PASSWORD)=UPPER(?) ";    
+         
+        public final static String SELECT_USER_BY_LETTER =
+        " SELECT  USER_ID,USER_FIRST_NAME,USER_LAST_NAME,USER_PASSWORD,STATUS,PASSWORD_EXPIRATION_DATE, " +
+        " USER_LOGIN_ID,USER_PHONE,COMPANY_ID from cigarette_company_users " +
+        " where  UPPER(substr(USER_LOGIN_ID,1,1))=UPPER(?) order by 2";
+         public final static String SELECT_CIG_USERS_ALL =
+          " SELECT  USER_ID,USER_FIRST_NAME,USER_LAST_NAME,USER_PASSWORD,STATUS,PASSWORD_EXPIRATION_DATE, " +
+        " USER_LOGIN_ID,USER_PHONE,COMPANY_ID FROM CIGARETTE_COMPANY_USERS WHERE STATUS='A' ";
+        
+}

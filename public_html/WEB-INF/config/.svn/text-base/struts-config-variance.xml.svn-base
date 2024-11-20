@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="ownerForm" type="Variance.control.form.DfbsOwnerForm"/>
+    <form-bean name="varForm" type="Variance.control.form.varianceApplicationForm"/>
+     <form-bean name="desForm" type="Variance.control.form.varDesignerForm"/>
+       <form-bean name="shopCartForm" type="Variance.control.form.ShoppingCartForm"/>
+        <form-bean name="codeForm" type="Variance.control.form.varCodeDetailForm"/>
+    </form-beans>
+  <global-forwards>
+    <forward name="index" path="/main.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  
+  <action-mappings>
+   <action path="/start" type="Variance.control.action.varianceStartAction"
+            name="varForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/varianceStart.jsp"/>
+       <forward name="submitter" path="/submitter.jsp"/> 
+       <forward name="updateSubmitter" path="/updateSubmitter.jsp"/> 
+       <forward name="projectInfo" path="/projectInfo.jsp"/> 
+       <forward name="updateProjectInfo" path="/updateProjectInfo.jsp"/> 
+       <forward name="varApplication" path="/varApplication.jsp"/> 
+       <forward name="varCompApplication" path="/varCompApplication.jsp"/> 
+       <forward name="affirmation" path="/affirmation.jsp"/> 
+       <forward name="goToUpload" path="/uploadFile.jsp"/>
+       <forward name="processApplications" path="/processApplications.jsp"/>
+       <forward name="processCompApplications" path="/processCompApplications.jsp"/>
+       <forward name="compApplication" path="/compApplication.jsp"/>
+       <forward name="desQuestion" path="/desQuestion.jsp"/>
+       <forward name="newCode" path="/newCode.jsp"/>
+       <forward name="varListPublic" path="/varListPublic.jsp"/> 
+       <forward name="codeListApplications" path="/codeListApplication.jsp"/> 
+       <forward name="ownerAffirmation" path="/ownerAffirmation.jsp"/> 
+       <forward name="designerAffirmation" path="/designerAffirmation.jsp"/> 
+       <forward name="affirmationComplete" path="/affirmationComplete.jsp"/>   
+       <forward name="subQuestion" path="/subQuestion.jsp"/> 
+       <forward name="updateVarApplication" path="/addVariance.jsp"/> 
+       <forward name="updateOptions" path="/updateOptions.jsp"/> 
+        <forward name="lboLfoSelect" path="/lboLfoSelect.jsp"/>
+        <forward name="updateLfoEmail" path="/updateLfoEmail.jsp"/>
+     </action>
+   <action path="/owner" type="Variance.control.action.DfbsOwnerAction"
+            name="ownerForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="newOwner" path="/newOwner.jsp"/>
+       <forward name="updateOwner" path="/updateOwner.jsp"/>
+    </action>
+    <action path="/designer" type="Variance.control.action.varDesignerAction"
+            name="desForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="newDesigner" path="/newDesigner.jsp"/>
+       <forward name="updateDesigner" path="/updateDesigner.jsp"/>
+    </action>
+     <action path="/code" type="Variance.control.action.varCodeAction"
+            name="codeForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="newCode" path="/newCode.jsp"/>
+       <forward name="updateCode" path="/updateCode.jsp"/>
+       <forward name="processCompApplications" path="/processCompApplications.jsp"/>
+       <forward name="affirmation" path="/affirmation.jsp"/> 
+        <forward name="codeListApplications" path="/codeListApplication.jsp"/> 
+         <forward name="lboLfoSelect" path="/lboLfoSelect.jsp"/>
+    </action>
+    <action path="/checkout"
+            type="Variance.control.action.varCheckoutAction"
+            name="varForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/varianceStart.jsp"/>
+       <forward name="affirmation" path="/affirmation.jsp"/> 
+    </action>
+    
+    <action path="/completeCheckout"
+            type="Variance.control.action.varCompleteCheckoutAction"
+            name="varForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/varianceStart.jsp"/>
+    </action>
+     
+   
+    
+  </action-mappings>
+</struts-config>

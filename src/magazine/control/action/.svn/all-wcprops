@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/magazine/control/action
+END
+FireInspectionAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/magazine/control/action/FireInspectionAction.java
+END
+MagazineCheckoutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/magazine/control/action/MagazineCheckoutAction.java
+END
+MagazineUsersAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/magazine/control/action/MagazineUsersAction.java
+END
+MagazineCompleteCheckoutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/magazine/control/action/MagazineCompleteCheckoutAction.java
+END
+DfbsOwnerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/magazine/control/action/DfbsOwnerAction.java
+END
+FireViolationAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/magazine/control/action/FireViolationAction.java
+END
+DfbsStartAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/magazine/control/action/DfbsStartAction.java
+END
+DfbsPermitAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/magazine/control/action/DfbsPermitAction.java
+END
+DfbsContactAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/magazine/control/action/DfbsContactAction.java
+END

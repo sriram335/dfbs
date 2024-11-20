@@ -1,0 +1,168 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    
+    <form-bean name="emsPersonForm" type="ems.control.form.EmsPersonForm"/>
+    <form-bean name="emsProviderForm" type="ems.control.form.EmsProviderForm"/>
+     <form-bean name="emsSecurityForm" type="ems.control.form.EmsSecurityForm"/>
+    <form-bean name="emsSecurityDetailForm" type="ems.control.form.EmsSecurityDetailForm"/>
+      <form-bean name="emsVehicleForm" type="ems.control.form.EmsVehicleForm"/>
+     <form-bean name="emsLevelForm" type="ems.control.form.EmsLevelForm"/>
+     <form-bean name="emsWaiverForm" type="ems.control.form.EmsWaiverForm"/>  
+     <form-bean name="emsHospitalForm" type="ems.control.form.EmsHospitalForm"/>
+      <form-bean name="emsInstitutionForm" type="ems.control.form.EmsInstitutionForm"/>
+      <form-bean name="emsAgmtsForm" type="ems.control.form.EmsInstAgmtsForm"/> 
+      <form-bean name="emsCourseForm" type="ems.control.form.EmsCourseForm"/> 
+      <form-bean name="emsInstructorForm" type="ems.control.form.EmsInstructorsForm"/> 
+       <form-bean name="searchForm" type="ems.control.form.advancedSearchForm"/> 
+       <form-bean name="emsProvRenewalForm" type="ems.control.form.EmsProvRenewalForm"/>
+  </form-beans>
+  <global-forwards>
+    <forward name="index" path="/main.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+   <action-mappings>   
+     <action path="/person" type="ems.control.action.EmsPersonAction"
+            name="emsPersonForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="personLookup" path="/personLookup.jsp"/>
+      <forward name="personList" path="/personList.jsp"/>
+      <forward name="personDetail" path="/personDetail.jsp"/>
+      <forward name="addNewPerson" path="/addNewPerson.jsp"/>
+      <forward name="addNewContact" path="/addNewContact.jsp"/>
+     </action>
+    <action path="/provider" type="ems.control.action.EmsProviderAction"
+            name="emsProviderForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="providerList" path="/providerList.jsp"/>
+       <forward name="providerListNew" path="/providerListNew.jsp"/>
+      <forward name="providerDetail" path="/providerDetail.jsp"/>
+      <forward name="personList" path="/personList.jsp"/>
+      <forward name="hospProvList" path="/hospProvList.jsp"/>
+     </action>
+     <action path="/main" type="ems.control.action.EmsAction"
+            name="emsSecurityForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="main" path="/main.jsp"/>
+      <forward name="viewAll" path="/viewAll.jsp"/>
+      <forward name="newUserType" path="/newUserType.jsp"/>
+      <forward name="newUser" path="/newUser.jsp"/>
+      <forward name="loginPage" path="/loginPage.jsp"/>
+      <forward name="authUser" path="/authUser.jsp"/>
+       <forward name="emailPasswordPage" path="/emailPasswordPage.jsp"/>
+       <forward name="changePassword" path="/changePassword.jsp"/>
+       <forward name="updateUsers" path="/updateUser.jsp"/>
+       <forward name="showUserList" path="/showUserList.jsp"/>
+        <forward name="showUserListNew" path="/showUserListNew.jsp"/>
+      <forward name="goToUpload" path="/uploadFile.jsp"/>
+      <forward name="advanceSearch" path="/advanceSearch.jsp"/>
+    </action>
+     <action path="/vehicle" type="ems.control.action.EmsVehicleAction"
+            name="emsVehicleForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="vehicleList" path="/vehicleList.jsp"/>
+      <forward name="vehicleDetail" path="/vehicleDetail.jsp"/>
+       <forward name="renewVehicle" path="/renewVehicle.jsp"/>
+     </action>
+     
+      <action path="/level" type="ems.control.action.EmsLevelAction"
+            name="emsLevelForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="levelList" path="/levelList.jsp"/>
+      <forward name="levelDetail" path="/levelDetail.jsp"/>
+     </action>
+     
+     <action path="/waiver" type="ems.control.action.EmsWaiverAction"
+            name="emsWaiverForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="waiverList" path="/waiverList.jsp"/>
+      <forward name="waiverDetail" path="/waiverDetail.jsp"/>
+     </action>
+     
+     <action path="/hospital" type="ems.control.action.EmsHospitalAction"
+            name="emsHospitalForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="hospitalList" path="/hospitalList.jsp"/>
+      <forward name="hospitalDetail" path="/hospitalDetail.jsp"/>
+      <forward name="personHospList" path="/personList.jsp"/>
+     </action>
+     
+     <action path="/institution" type="ems.control.action.EmsInstitutionAction"
+            name="emsInstitutionForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="institutionList" path="/institutionList.jsp"/>
+      <forward name="institutionDetail" path="/institutionDetail.jsp"/>
+      <forward name="personInstList" path="/personList.jsp"/>
+     </action>
+     
+    <action path="/agmts" type="ems.control.action.EmsInstAgmtsAction"
+            name="emsAgmtsForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="agmtsList" path="/agmtsList.jsp"/>
+      <forward name="agmtsDetail" path="/agmtsDetail.jsp"/>
+      
+     </action>
+     
+     
+     
+     <action path="/course" type="ems.control.action.EmsCourseAction"
+            name="emsCourseForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="courseList" path="/courseList.jsp"/>
+      <forward name="courseDetail" path="/courseDetail.jsp"/>
+      <forward name="addNewInstructor" path="/addNewInstructor.jsp"/>
+      <forward name="updateInstructor" path="/updateInstructor.jsp"/>
+      <forward name="registerForCourse" path="/register.jsp"/>
+       <forward name="agreeToText" path="/agreeToText.jsp"/>
+       <forward name="selectCourse" path="/selectCourse.jsp"/>
+       <forward name="updateInstEmails" path="/updateInstEmails.jsp"/>
+      <forward name="acceptance" path="/courseAcceptance.jsp"/>
+     </action>
+     
+      <action path="/instructor" type="ems.control.action.EmsInstructorsAction"
+            name="emsInstructorForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="instructorList" path="/instructorList.jsp"/>
+      <forward name="instructorDetail" path="/instructorDetail.jsp"/>
+      <forward name="addNewInstructor" path="/addNewInstructor.jsp"/>
+      <forward name="agreeToText" path="/agreeToText.jsp"/>
+     
+     </action>
+     
+      <action path="/search" type="ems.control.action.advancedSearchAction"
+            name="searchForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="goToSearch" path="/advancedSearch.jsp"/>
+       <forward name="courseList" path="/courseList.jsp"/>
+       <forward name="addNewInstructor" path="/addNewInstructor.jsp"/>
+       <forward name="incident" path="/incident.jsp"/>
+       <forward name="incidentDetail" path="/incidentDetail.jsp"/>
+       <forward name="addIncidentManager" path="/addIncidentManager.jsp"/>
+     </action>
+     
+      <action path="/providerRenewal" type="ems.control.action.EmsProvRenewalAction"
+            name="emsProvRenewalForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="renewalList" path="/renewalList.jsp"/>
+      <forward name="renewalDetail" path="/providerRenewal.jsp"/>
+      <forward name="providerDetail" path="/providerDetail.jsp"/>
+      <forward name="renewalVehicleList" path="/renewalVehicleList.jsp"/>
+      </action>
+  </action-mappings>
+</struts-config>

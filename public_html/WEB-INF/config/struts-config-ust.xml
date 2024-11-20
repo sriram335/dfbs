@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="ustForm" type="ust.control.form.ustApplicantForm"/>
+     <form-bean name="ustCertForm" type="ust.control.form.ustCertificationForm"/>
+    </form-beans>
+  <global-forwards>
+    <forward name="index" path="/main.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  
+  <action-mappings>
+   <action path="/ust" type="ust.control.action.ustApplicantAction"
+            name="ustForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/start.jsp"/>
+        <forward name="renewUst" path="/renewUst.jsp"/>
+       <forward name="appRenewal" path="/appRenewal.jsp"/>
+        <forward name="goToUpload" path="/upload.jsp"/> 
+    </action>
+    <action path="/ustCert" type="ust.control.action.ustCertAction"
+            name="ustCertForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="ustCert" path="/ustCert.jsp"/>
+       <forward name="ustCertNew" path="/ustCertNew.jsp"/> 
+        <forward name="updateUstCert" path="/updateUstCert.jsp"/>
+    </action>
+     <action path="/checkOut" type="ust.control.action.ustCheckoutAction"
+            name="ustCertForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="ustCert" path="/ustCert.jsp"/>
+    </action>
+     <action path="/completeCheckOut" type="ust.control.action.ustCompleteCheckoutAction"
+            name="ustCertForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="renewUst" path="/renewUst.jsp"/>
+    </action>
+  </action-mappings>
+</struts-config>

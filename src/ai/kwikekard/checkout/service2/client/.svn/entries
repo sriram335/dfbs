@@ -1,0 +1,42 @@
+10
+
+dir
+0
+http://dhsaspd01pw.state.in.us:18080/svn/Dfbs/trunk/dfbs/src/ai/kwikekard/checkout/service2/client
+http://dhsaspd01pw.state.in.us:18080/svn/Dfbs
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b2141e2d-a2f9-be40-9549-775db608d5ca
+
+CheckoutService2SoapBindingStub.java
+file
+
+
+
+add
+
+CheckoutService2_ServiceLocator.java
+file
+
+
+
+add
+

@@ -1,0 +1,56 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    
+    <form-bean name="securityForm" type="main.control.form.ApplicationSecurityForm"/>
+    <form-bean name="reportsForm" type="main.control.form.DfbsReportsForm"/>
+  </form-beans>
+  <global-forwards>
+    <forward name="index" path="/main.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  
+  <action-mappings>
+    
+     <action path="/main" type="main.control.action.ApplicationSecurityAction"
+            name="securityForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="main" path="/main.jsp"/>
+      <forward name="logOn" path="/loginPage.jsp"/>
+       <forward name="renewBy" path="/renewBy.jsp"/>
+      <forward name="emailPasswordPage" path="/emailPasswordPage.jsp"/>
+      <forward name="changePassword" path="/changePassword.jsp"/>
+      
+    </action>
+   <action path="/application" type="main.control.action.ApplicationSecurityAction"
+            name="securityForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="main" path="/main.jsp"/>
+      <forward name="logOn" path="/loginPage.jsp"/>
+       <forward name="renewBy" path="/renewBy.jsp"/>
+      <forward name="emailPasswordPage" path="/emailPasswordPage.jsp"/>
+      <forward name="changePassword" path="/changePassword.jsp"/>
+     </action>
+     <action path="/reports" type="main.control.action.DfbsReportAction"
+            name="reportsForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="reports" path="/reports.jsp"/>
+      </action>
+      
+        <action path="/logOn" type="main.control.action.ApplicationSecurityAction"
+            name="securityForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="start" path="/start.jsp"/>
+      <forward name="logOn" path="/loginPage.jsp"/>
+       <forward name="emailPasswordPage" path="/emailPasswordPage.jsp"/>
+        <forward name="main" path="/main.jsp"/>
+       </action>
+  </action-mappings>
+</struts-config>

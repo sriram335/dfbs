@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/aepermits/data
+END
+DfbsEntrPermitDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/aepermits/data/DfbsEntrPermitDAO.java
+END
+ShoppingCartDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/aepermits/data/ShoppingCartDAO.java
+END
+DfbsEntrOwnerDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/aepermits/data/DfbsEntrOwnerDAO.java
+END
+DfbsEntrSQL.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/aepermits/data/DfbsEntrSQL.java
+END
+DfbsEntrSpecialDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/aepermits/data/DfbsEntrSpecialDAO.java
+END

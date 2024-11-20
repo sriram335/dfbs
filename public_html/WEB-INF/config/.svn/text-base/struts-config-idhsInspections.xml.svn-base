@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    
+    <form-bean name="securityForm" type="main.control.form.ApplicationSecurityForm"/>
+    <form-bean name="reportsForm" type="main.control.form.DfbsReportsForm"/>
+    <form-bean name="searchForm" type="idhsInspections.control.form.InspectionSearchForm"/>
+    <form-bean name="inspectionForm" type="idhsInspections.control.form.fireInspectionForm"/>
+    <form-bean name="violationForm" type="idhsInspections.control.form.fireViolationForm"/>
+    <form-bean name="inspActivityForm" type="idhsInspections.control.form.inspectorActivityForm"/>
+    <form-bean name="reviewForm" type="planReview.control.form.PlanReviewForm"/>
+    <form-bean name="approvalForm" type="idhsInspections.control.form.fireAEPermitApprovalForm"/>
+    <form-bean name="ruleForm" type="idhsInspections.control.form.rule13Form"/>
+     <form-bean name="ownerForm" type="childcare.control.form.DfbsOwnerForm"/>
+   
+  </form-beans>
+  <global-forwards>
+    <forward name="index" path="/main.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  
+  <action-mappings>
+  
+    
+   <action path="/search" type="idhsInspections.control.action.InspectionSearchAction"
+            name="searchForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="start" path="/start.jsp"/>
+      <forward name="inactivateFacility" path="/inactivateFacility.jsp"/>
+      <forward name="fssaStart" path="/fssaStart.jsp"/>
+     
+  </action>
+   <action path="/rule13" type="idhsInspections.control.action.rule13Action"
+            name="ruleForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="addRuleList" path="/rule13.jsp"/>
+       <forward name="updateRuleList" path="/updateRule13.jsp"/>
+     <forward name="editRule13" path="/editRule13.jsp"/>
+  </action>
+
+  
+  
+   <action path="/idhsInspection" type="idhsInspections.control.action.fireInspectionAction"
+            name="inspectionForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="updateIdhsInspection" path="/updateIdhsInspection.jsp"/>
+      <forward name="newIdhsInspection" path="/newIdhsInspection.jsp"/>
+      <forward name="goToUpload" path="/uploadFile.jsp"/>
+       
+  </action>
+   <action path="/inspectorActivity" type="idhsInspections.control.action.fireInspectorActivityAction"
+            name="inspActivityForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="updateInspActivity" path="/updateInspActivity.jsp"/>
+      <forward name="newInspActivity" path="/newInspActivity.jsp"/>
+      <forward name="inspectionStart" path="/inspectionStart.jsp"/>
+      <forward name="start" path="/start.jsp"/>
+   </action>
+   <action path="/idhsViolation" type="idhsInspections.control.action.fireViolationAction"
+            name="violationForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="updateIdhsViolation" path="/updateIdhsViolation.jsp"/>
+      <forward name="newIdhsViolation" path="/newIdhsViolation.jsp"/>
+       <forward name="updateIdhsInspection" path="/updateIdhsInspection.jsp"/>
+   </action>
+    <action path="/updateOwner" type="idhsInspections.control.action.dfbsOwnerAction"
+            name="ownerForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="updateOwner" path="/updateOwner.jsp"/>
+       <forward name="updateIdhsInspection" path="/updateIdhsInspection.jsp"/>
+   </action>
+   <action path="/inspection" type="idhsInspections.control.action.fireInspectionAction"
+            name="inspectionForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="inspectionList" path="/inspectionList.jsp"/>
+       <forward name="inspectionStart" path="/inspectionStart.jsp"/>
+        <forward name="inspStartFssa" path="/inspStartFssa.jsp"/>
+        <forward name="newInspection" path="/newInspection.jsp"/>
+         <forward name="updateInspection" path="/updateInspection.jsp"/>
+          <forward name="updateIdhsInspection" path="/updateIdhsInspection.jsp"/>
+      <forward name="newIdhsInspection" path="/newIdhsInspection.jsp"/>
+      <forward name="goToUpload" path="/uploadFile.jsp"/>
+      
+  </action>
+   <action path="/planReview" type="planReview.control.action.PlanReviewAction"
+            name="reviewForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="goToUpload" path="/planReview/uploadFile.jsp"/>
+      </action>
+       <action path="/AEPermitApproval" type="idhsInspections.control.action.fireAEPermitApprovalAction"
+            name="approvalForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="updateFacUse" path="/AEPermitApproval.jsp"/>
+       <forward name="inspectionList" path="/inspectionList.jsp"/>
+      </action>
+  </action-mappings>
+</struts-config>

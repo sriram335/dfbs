@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    
+   
+    <form-bean name="reviewForm" type="planReview.control.form.PlanReviewForm"/>
+    <form-bean name="fileForm" type="main.control.form.FileNamesForm"/>
+     <form-bean name="planUserForm" type="planReview.control.form.PlanLBOUsersForm"/>
+  </form-beans>
+  <global-forwards>
+    <forward name="index" path="/main.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  
+  <action-mappings>
+   <action path="/upload" type="planReview.control.action.PlanReviewAction"
+            name="reviewForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="goToUpload" path="/uploadFile.jsp"/>
+      <forward name="reviewMarkups" path="/reviewMarkups.jsp"/>
+      <forward name="start" path="/start.jsp"/>
+      <forward name="viewPlans" path="/LBOViewPlans.jsp"/>
+      <forward name="preUpload" path="/preUpload.jsp"/>
+       <forward name="othersViewPlans" path="/planOthersViewPlans.jsp"/>
+      </action>
+     
+     <action path="/fileNameChange" type="planReview.control.action.PlanFileAction"
+            name="fileForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="editFileName" path="/editFileName.jsp"/>
+      </action>
+       <action path="/planUser" type="planReview.control.action.PlanLBOUsersAction"
+            name="planUserForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="updatePassword" path="/updatePassword.jsp"/>
+      <forward name="loginUser" path="/loginUser.jsp"/>
+       <forward name="viewPlans" path="/LBOViewPlans.jsp"/>
+      </action>
+  </action-mappings>
+</struts-config>

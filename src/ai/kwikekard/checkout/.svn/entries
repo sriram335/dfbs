@@ -1,0 +1,35 @@
+10
+
+dir
+0
+http://dhsaspd01pw.state.in.us:18080/svn/Dfbs/trunk/dfbs/src/ai/kwikekard/checkout
+http://dhsaspd01pw.state.in.us:18080/svn/Dfbs
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b2141e2d-a2f9-be40-9549-775db608d5ca
+
+service2
+dir
+
+
+
+add
+

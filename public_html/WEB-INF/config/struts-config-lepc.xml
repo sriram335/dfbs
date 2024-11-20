@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="securityForm" type="main.control.form.ApplicationSecurityForm"/>
+     <form-bean name="lForm" type="lepc.control.form.lepcForm"/>
+     <form-bean name="rosterForm" type="lepc.control.form.lepcRosterForm"/>
+      <form-bean name="repForm" type="lepc.control.form.lepcRosterRepForm"/>
+      <form-bean name="fiscalForm" type="lepc.control.form.fiscalReportForm"/>
+      <form-bean name="exerciseForm" type="lepc.control.form.lepcExerciseForm"/>
+      <form-bean name="agencyForm" type="lepc.control.form.lepcAgencyForm"/>
+      <form-bean name="chemForm" type="lepc.control.form.lepcChemicalForm"/>
+      <form-bean name="meetingForm" type="lepc.control.form.lepcMeetingForm"/> 
+  </form-beans>
+  <global-forwards>
+    <forward name="index" path="otherUsers.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  <action-mappings>
+     <action path="/lepc" type="lepc.control.action.lepcStartAction"
+            name="lForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="start" path="/start.jsp"/>
+      <forward name="lepcYear" path="/lepcYear.jsp"/>
+     <forward name="addLepcYear" path="/addLepcYear.jsp"/> 
+     <forward name="lepcDocList" path="/lepcDocList.jsp"/> 
+     <forward name="uploadFile" path="/uploadFile.jsp"/> 
+     <forward name="uploadFileEthics" path="/uploadEthics.jsp"/> 
+      <forward name="lepcNotes" path="/lepcNotes.jsp"/>
+       <forward name="viewAllCounties" path="/viewAllCounties.jsp"/>
+    </action>
+     <action path="/roster" type="lepc.control.action.lepcRosterAction"
+            name="rosterForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="addRoster" path="/addRoster.jsp"/>
+     <forward name="updateRoster" path="/updateRoster.jsp"/>
+    </action>
+    <action path="/representative"
+            type="lepc.control.action.representativeAction"
+            name="repForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="addRepresentative" path="/rosterRep.jsp" />
+       <forward name="addRepresentativeProxy" path="/rosterRepProxy.jsp" />
+    </action>
+     <action path="/fiscalReport"
+            type="lepc.control.action.fiscalReportAction"
+            name="fiscalForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="fiscalReport" path="/fiscalReport.jsp" />
+      <forward name="expenditure" path="/expenditure.jsp" />
+    </action>
+    <action path="/exercise"
+            type="lepc.control.action.lepcExerciseAction"
+            name="exerciseForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="exercise" path="/lepcExercise.jsp" />
+    </action>
+     <action path="/agency"
+            type="lepc.control.action.lepcAgencyAction"
+            name="agencyForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="agency" path="/agency.jsp" />
+    </action>
+     <action path="/chemical"
+            type="lepc.control.action.lepcChemicalAction"
+            name="chemForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="chemical" path="/chemical.jsp" />
+    </action>
+     <action path="/meeting" type="lepc.control.action.lepcMeetingAction"
+            name="meetingForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="addMeeting" path="/meeting.jsp"/>
+     <forward name="updateMeeting" path="/meeting.jsp"/>
+     <forward name="meetingList" path="/meetingList.jsp"/>
+    </action>
+      </action-mappings>
+</struts-config>

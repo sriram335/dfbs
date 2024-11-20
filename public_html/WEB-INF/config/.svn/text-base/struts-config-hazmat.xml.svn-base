@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="permitForm" type="hazmat.control.form.HazmatPermitForm"/>
+    <form-bean name="carrierForm" type="hazmat.control.form.HazmatCarrierForm"/>
+    <form-bean name="shipmentForm" type="hazmat.control.form.HazmatShipmentForm"/>
+    <form-bean name="securityForm" type="main.control.form.ApplicationSecurityForm"/>
+    <form-bean name="permitViewForm" type="hazmat.control.form.HazmatPermitViewForm"/>
+  </form-beans>
+  <global-forwards>
+    <forward name="index" path="hazmat.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  <action-mappings>
+  
+    <action path="/hazmat" type="hazmat.control.action.HazmatPermitAction"
+            name="permitForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="hazmatApp" path="/hazmatApp.jsp"/>
+      <forward name="addOrg" path="/hazmatOrg.jsp"/>
+      <forward name="editOrg" path="/hazmatOrgEdit.jsp"/>
+      <forward name="startOver" path="/hazmatApp.jsp"/>
+       <forward name="pdf" path="/pdf.do" contextRelative="true"/>
+      <forward name="sendEmailForm" path="/sendEmailForm.jsp"/>
+    </action>
+    
+    <action path="/carrier" type="hazmat.control.action.HazmatCarrierAction"
+            name="carrierForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="addCarrier" path="/carrier.jsp"/>
+      <forward name="editCarrier" path="/carrierEdit.jsp"/>
+       <forward name="hazmatApp" path="/hazmatApp.jsp"/>
+    </action>
+    
+    <action path="/shipment" type="hazmat.control.action.HazmatShipmentAction"
+            name="shipmentForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="addShipment" path="/shipment.jsp"/>
+      <forward name="editShipment" path="/shipment.jsp"/>
+       <forward name="hazmatApp" path="/hazmatApp.jsp"/>
+       <forward name="verify" path="/verifyShipment.jsp"/> 
+    </action>
+    
+     <action path="/checkout"
+            type="hazmat.control.action.HazmatCheckoutAction"
+            name="permitForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="hazmatApp" path="/hazmatApp.jsp"/>
+    </action>
+    
+    <action path="/completeCheckout"
+            type="hazmat.control.action.HazmatCompleteCheckoutAction"
+            name="permitForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+    </action>
+    
+    
+    <action path="/orgShipmentView" type="hazmat.control.action.HazmatViewAction"
+            name="permitViewForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="hazmatPrivate" path="/hazmatPrivate.jsp"/>
+      <forward name="orgShipmentView" path="/orgShipmentView.jsp"/>
+      <forward name="viewDetails" path="/viewDetails.jsp"/>
+      <forward name="backToView" path="/orgShipmentView.jsp"/>
+    </action>
+    
+      </action-mappings>
+</struts-config>

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/WEB-INF
+END
+struts-template.tld
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/WEB-INF/struts-template.tld
+END
+struts-logic.tld
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/WEB-INF/struts-logic.tld
+END
+struts-html.tld
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/WEB-INF/struts-html.tld
+END
+weblogic.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/WEB-INF/weblogic.xml
+END
+struts-bean.tld
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/WEB-INF/struts-bean.tld
+END
+struts-tiles.tld
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/WEB-INF/struts-tiles.tld
+END
+hs.tld
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/WEB-INF/hs.tld
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/WEB-INF/web.xml
+END
+struts-nested.tld
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/WEB-INF/struts-nested.tld
+END

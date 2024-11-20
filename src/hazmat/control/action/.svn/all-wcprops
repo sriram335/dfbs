@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hazmat/control/action
+END
+HazmatPermitAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hazmat/control/action/HazmatPermitAction.java
+END
+HazmatCarrierAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hazmat/control/action/HazmatCarrierAction.java
+END
+HazmatShipmentAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hazmat/control/action/HazmatShipmentAction.java
+END
+HazmatCheckoutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hazmat/control/action/HazmatCheckoutAction.java
+END
+HazmatViewAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hazmat/control/action/HazmatViewAction.java
+END
+HazmatCompleteCheckoutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hazmat/control/action/HazmatCompleteCheckoutAction.java
+END

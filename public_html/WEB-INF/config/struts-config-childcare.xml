@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="ownerForm" type="childcare.control.form.DfbsOwnerForm"/>
+    <form-bean name="ownerApplicationForm" type="childcare.control.form.DfbsOwnerForm"/>
+    <form-bean name="childcareForm" type="childcare.control.form.DfbsChildcarePermitForm"/>
+     <form-bean name="contactForm" type="childcare.control.form.DfbsContactForm"/>
+    <form-bean name="startForm" type="childcare.control.form.DfbsStartForm"/>
+     <form-bean name="shopCartForm" type="childcare.control.form.ShoppingCartForm"/>
+    </form-beans>
+  <global-forwards>
+    <forward name="index" path="/main.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  
+  <action-mappings>
+   <action path="/start" type="childcare.control.action.DfbsStartAction"
+            name="startForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/start.jsp"/>
+        <forward name="renewBy" path="/application/renewBy.jsp"/>
+       <forward name="renewByStreetNumber" path="/main.jsp"/>
+       <forward name="renewByPermitNumber" path="/main.jsp"/>
+      <forward name="goToUpload" path="/application/uploadFile.jsp"/>
+      <forward name="sendEmailForm" path="/sendEmailForm.jsp"/>
+    </action>
+    <action path="/main" type="childcare.control.action.ChildcareAction"
+            name="ownerForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="main" path="/main.jsp"/>
+      <forward name="view" path="/view.jsp"/>
+      <forward name="sendEmailForm" path="/sendEmailForm.jsp"/>
+      <forward name="pdf" path="/pdf.do" contextRelative="true"/>
+      <forward name="goToUpload" path="/application/uploadFile.jsp"/>
+      <forward name="step2" path="/application/step2.jsp"/>
+    </action>
+    
+    <action path="/application"
+            type="childcare.control.action.ChildcareApplicationAction"
+            name="ownerApplicationForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="intro" path="/application/intro.jsp"/>
+      <forward name="newOwner" path="/application/newOwner.jsp"/>
+      <forward name="renewOwner" path="/application/ownerRenew.jsp"/>
+      <forward name="startOverForm" path="/application/startOverForm.jsp" />
+       <forward name="main" path="/main.do?method=refresh" />
+      <forward name="renewPermit" path="/application/renewPermit.jsp"/>
+       <forward name="renewOwnerForm" path="/application/renewOwnerForm.jsp"/>
+    </action>
+    
+    <action path="/checkout"
+            type="childcare.control.action.ChildcareCheckoutAction"
+            name="shopCartForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/start.jsp"/>
+    </action>
+    
+    <action path="/completeCheckout"
+            type="childcare.control.action.ChildcareCompleteCheckoutAction"
+            name="ownerForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+    </action>
+    
+    <action path="/childcare"
+            type="childcare.control.action.ChildcarePermitAction"
+            name="childcareForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="addPermitForm" path="/application/addPermitForm.jsp" />
+      <forward name="editPermitForm" path="/application/editPermitForm.jsp" />
+      <forward name="viewPermit" path="/application/viewPermit.jsp" />
+      <forward name="goToUpload" path="/application/uploadFile.jsp"/>
+      <forward name="reAssignId" path="/application/reAssignId.jsp"/>
+       <forward name="main" path="/main.jsp"/>
+       <forward name="renewPermit" path="/application/renewPermit.jsp"/>
+       <forward name="renewPermitForm" path="/application/renewPermitForm.jsp"/>
+       <forward name="updatePermit" path="/application/updatePermit.jsp"/>
+    </action>
+     <action path="/contact"
+            type="childcare.control.action.DfbsContactAction"
+            name="contactForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="viewContacts" path="/application/contactsList.jsp" />
+       <forward name="editContact" path="/application/editContact.jsp" />
+        <forward name="newContact" path="/application/newContact.jsp" />
+         <forward name="renewPermit" path="/application/renewPermit.jsp"/>
+       <forward name="renewContactForm" path="/application/renewContactForm.jsp"/>
+    </action>
+     
+   
+    
+  </action-mappings>
+</struts-config>

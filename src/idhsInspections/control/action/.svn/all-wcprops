@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/idhsInspections/control/action
+END
+fireInspectionAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/idhsInspections/control/action/fireInspectionAction.java
+END
+fireAEPermitApprovalAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/idhsInspections/control/action/fireAEPermitApprovalAction.java
+END
+dfbsOwnerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/idhsInspections/control/action/dfbsOwnerAction.java
+END
+fireInspectorActivityAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/idhsInspections/control/action/fireInspectorActivityAction.java
+END
+fireViolationAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/idhsInspections/control/action/fireViolationAction.java
+END
+rule13Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/idhsInspections/control/action/rule13Action.java
+END
+InspectionSearchAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/idhsInspections/control/action/InspectionSearchAction.java
+END

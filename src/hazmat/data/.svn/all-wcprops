@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hazmat/data
+END
+HazmatCarrierDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hazmat/data/HazmatCarrierDAO.java
+END
+HazmatShipmentDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hazmat/data/HazmatShipmentDAO.java
+END
+HazmatPermitDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hazmat/data/HazmatPermitDAO.java
+END
+HazmatPermitSQL.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/hazmat/data/HazmatPermitSQL.java
+END

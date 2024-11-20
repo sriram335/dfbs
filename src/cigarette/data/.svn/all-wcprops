@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/cigarette/data
+END
+CigaretteBrandDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/cigarette/data/CigaretteBrandDAO.java
+END
+CigaretteUsersDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/cigarette/data/CigaretteUsersDAO.java
+END
+CigaretteCompanyDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/cigarette/data/CigaretteCompanyDAO.java
+END
+CigaretteApplicationDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/cigarette/data/CigaretteApplicationDAO.java
+END
+CigarettePermitSQL.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/cigarette/data/CigarettePermitSQL.java
+END

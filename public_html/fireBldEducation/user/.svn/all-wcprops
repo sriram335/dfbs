@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/fireBldEducation/user
+END
+loginPage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/fireBldEducation/user/loginPage.jsp
+END
+userList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/fireBldEducation/user/userList.jsp
+END
+forgotUserId.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/fireBldEducation/user/forgotUserId.jsp
+END
+addNewUser.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/fireBldEducation/user/addNewUser.jsp
+END
+changePassword.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/fireBldEducation/user/changePassword.jsp
+END
+manageUser.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/fireBldEducation/user/manageUser.jsp
+END
+updateUser.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/fireBldEducation/user/updateUser.jsp
+END
+emailPasswordPage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/fireBldEducation/user/emailPasswordPage.jsp
+END
+classList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/public_html/fireBldEducation/user/classList.jsp
+END

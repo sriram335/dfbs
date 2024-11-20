@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/ust/control/action
+END
+ustCertAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/ust/control/action/ustCertAction.java
+END
+ustCompleteCheckoutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/ust/control/action/ustCompleteCheckoutAction.java
+END
+ustCheckoutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/ust/control/action/ustCheckoutAction.java
+END
+ustApplicantAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/ust/control/action/ustApplicantAction.java
+END

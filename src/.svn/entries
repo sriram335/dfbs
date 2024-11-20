@@ -1,0 +1,190 @@
+10
+
+dir
+19
+http://dhsaspd01pw.state.in.us:18080/svn/Dfbs/trunk/dfbs/src
+http://dhsaspd01pw.state.in.us:18080/svn/Dfbs
+
+
+
+2015-07-11T15:16:08.682454Z
+18
+nnimmagadda
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b2141e2d-a2f9-be40-9549-775db608d5ca
+
+FireBldEducation
+dir
+
+Variance
+dir
+
+aepermits
+dir
+
+ai
+dir
+
+
+
+add
+
+amuseRide
+dir
+
+arson
+dir
+
+childcare
+dir
+
+cigarette
+dir
+
+code
+dir
+
+codeEducation
+dir
+
+commons-fileupload-1.2.2
+dir
+
+display
+dir
+
+elevator
+dir
+
+ems
+dir
+
+fireHouse
+dir
+
+fireworks
+dir
+
+hazmat
+dir
+
+hs
+dir
+
+idhsFines
+dir
+
+idhsInspections
+dir
+
+img
+dir
+
+lepc
+dir
+
+log4j.properties
+file
+
+
+
+
+2015-07-15T02:18:06.904000Z
+29b47884ddab7928f45714bdc06e07e7
+2015-07-11T15:16:08.682454Z
+18
+nnimmagadda
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1758
+
+magazine
+dir
+
+main
+dir
+
+org
+dir
+
+otherUsers
+dir
+
+planReview
+dir
+
+poi-3.6
+dir
+
+rebel.xml
+file
+
+
+
+
+2015-07-15T02:17:39.916000Z
+588d48500de1997a5b8bd4a274307e95
+2015-07-11T15:16:08.682454Z
+18
+nnimmagadda
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+513
+
+ust
+dir
+
+util
+dir
+

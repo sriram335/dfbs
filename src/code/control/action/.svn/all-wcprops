@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/code/control/action
+END
+CodeReleaseAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/code/control/action/CodeReleaseAction.java
+END
+CodeSealsAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/code/control/action/CodeSealsAction.java
+END
+CodeSealUsageAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/code/control/action/CodeSealUsageAction.java
+END
+CodeApplicationAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/code/control/action/CodeApplicationAction.java
+END
+CodeCheckoutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/code/control/action/CodeCheckoutAction.java
+END
+CodePersonAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/code/control/action/CodePersonAction.java
+END
+CodeFacilityAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/code/control/action/CodeFacilityAction.java
+END
+CodeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/code/control/action/CodeAction.java
+END
+CodeCompleteCheckoutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/code/control/action/CodeCompleteCheckoutAction.java
+END

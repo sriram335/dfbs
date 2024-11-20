@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/childcare/control/action
+END
+ChildcarePermitAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/childcare/control/action/ChildcarePermitAction.java
+END
+ChildcareApplicationAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/childcare/control/action/ChildcareApplicationAction.java
+END
+ChildcareCheckoutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/childcare/control/action/ChildcareCheckoutAction.java
+END
+DfbsStartAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/childcare/control/action/DfbsStartAction.java
+END
+DfbsContactAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/childcare/control/action/DfbsContactAction.java
+END
+ChildcareAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/childcare/control/action/ChildcareAction.java
+END
+ChildcareCompleteCheckoutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/childcare/control/action/ChildcareCompleteCheckoutAction.java
+END

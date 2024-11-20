@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="ownerForm" type="amuseRide.control.form.DfbsOwnerForm"/>
+    <form-bean name="rideForm" type="amuseRide.control.form.amuseRideForm"/>
+    <form-bean name="insForm" type="amuseRide.control.form.insuranceForm"/>
+      <form-bean name="cartForm" type="amuseRide.control.form.ShoppingCartForm"/> 
+   </form-beans>
+  <global-forwards>
+    <forward name="index" path="/main.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  
+  <action-mappings>
+   
+    <action path="/owner" type="amuseRide.control.action.DfbsOwnerAction"
+            name="ownerForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="start" path="/start.jsp"/>
+       <forward name="newOwner" path="/newOwner.jsp"/>
+         <forward name="viewOwner" path="/viewOwner.jsp"/>
+          <forward name="editOwner" path="/newOwner.jsp"/>
+          <forward name="newRide" path="/ride.jsp"/>
+          <forward name="insuranceList" path="/insuranceList.jsp"/>
+           <forward name="goToUpload" path="/upload.jsp"/>
+    </action>
+     <action path="/ride" type="amuseRide.control.action.amuseRideAction"
+            name="rideForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="newRide" path="/ride.jsp"/>
+       <forward name="viewOwner" path="/viewOwner.jsp"/>
+        <forward name="insuranceList" path="/insuranceList.jsp"/>    
+        <forward name="updateRide" path="/updateRide.jsp"/>
+
+       
+     </action>
+     <action path="/insurance" type="amuseRide.control.action.insuranceAction"
+            name="insForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="insurance" path="/insurance.jsp"/>
+       <forward name="insuranceList" path="/insuranceList.jsp"/>
+       
+     </action>
+     <action path="/inspection" type="elevator.control.action.elevInspectionAction"
+            name="inspForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="elevNewInspection" path="/elevNewInspection.jsp"/>
+       <forward name="elevUpdateInspection" path="/elevUpdateInspection.jsp"/>
+       <forward name="inspectionList" path="/inspectionList.jsp"/>
+       <forward name="search" path="/elevatorSearch.jsp"/>
+     </action>
+    
+     
+    <action path="/checkout"
+            type="amuseRide.control.action.amuseRideCheckoutAction"
+            name="cartForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/start.jsp"/>
+    </action>
+    
+    <action path="/completeCheckout"
+            type="amuseRide.control.action.amuseRideCompleteCheckoutAction"
+            name="cartForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+    </action>
+  </action-mappings>
+</struts-config>

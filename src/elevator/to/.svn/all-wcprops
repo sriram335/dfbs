@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/elevator/to
+END
+DfbsOwner.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/elevator/to/DfbsOwner.java
+END
+elevator.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/elevator/to/elevator.java
+END
+elevViolation.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/elevator/to/elevViolation.java
+END
+elevInspection.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/elevator/to/elevInspection.java
+END
+elevTests.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/elevator/to/elevTests.java
+END
+ShoppingCart.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/elevator/to/ShoppingCart.java
+END
+elevatorApplication.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/elevator/to/elevatorApplication.java
+END
+elevServiceContractor.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/elevator/to/elevServiceContractor.java
+END

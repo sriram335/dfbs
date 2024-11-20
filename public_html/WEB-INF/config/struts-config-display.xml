@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="ownerForm" type="display.control.form.DfbsOwnerForm"/>
+    <form-bean name="startForm" type="display.control.form.DfbsStartForm"/>
+    <form-bean name="displayForm" type="display.control.form.DfbsDisplayForm"/>
+     <form-bean name="displayDateForm" type="display.control.form.DisplayDatesForm"/>
+    <form-bean name="contactForm" type="display.control.form.DfbsContactForm"/> 
+    <form-bean name="securityForm" type="main.control.form.ApplicationSecurityForm"/>
+    <form-bean name="shopCartForm" type="display.control.form.ShoppingCartForm"/>
+    </form-beans>
+  <global-forwards>
+    <forward name="index" path="start.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  <action-mappings>
+    <action path="/start" type="display.control.action.DfbsStartAction"
+            name="startForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/start.jsp"/>
+        <forward name="renewBy" path="/renewBy.jsp"/>
+       <forward name="renewByStreetNumber" path="/ownerListDisplay.jsp"/>
+       <forward name="renewByPermitNumber" path="/ownerListDisplay.jsp"/>
+       <forward name="newOwner" path="/newOwner.jsp"/>
+       <forward name="oldOwner" path="/ownerListDisplayAll.jsp"/>
+       <forward name="goToUpload" path="/uploadFile.jsp"/>
+     </action>
+    <action path="/ownerListDisplay" type="display.control.action.DfbsOwnerAction"
+            name="ownerForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="ownerListDisplayAll" path="/ownerListDisplayAll.jsp"/>
+        <forward name="renew" path="/ownerRenew.jsp"/>
+        <forward name="renewPermit" path="/permitRenew.jsp"/>
+         <forward name="newPermit" path="/newPermit.jsp"/> 
+         <forward name="newOwner" path="/newOwner.jsp"/>
+         <forward name="editOwner" path="/editOwner.jsp"/>
+    </action>
+    
+      <action path="/display" type="display.control.action.DfbsPermitAction"
+            name="displayForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="renewPermit" path="/permitRenew.jsp"/> 
+       <forward name="newPermit" path="/newPermit.jsp"/> 
+       <forward name="editPermit" path="/editPermit.jsp"/> 
+       <forward name="pdf" path="/pdf.do" contextRelative="true"/>
+       <forward name="goToUpload" path="/uploadFile.jsp"/>
+       <forward name="updatePermit" path="/updatePermit.jsp"/> 
+       <forward name="viewPermit" path="/viewPermit.jsp"/>
+        <forward name="newDate" path="/displayDate.jsp"/> 
+        <forward name="logOn" path="/loginPage.jsp"/>
+     </action>
+      <action path="/displayDate" type="display.control.action.displayDateAction"
+            name="displayDateForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="newDate" path="/displayDate.jsp"/> 
+       <forward name="newIntDate" path="/displayIntDate.jsp"/> 
+       
+     </action>
+     
+        <action path="/contact" type="display.control.action.DfbsContactAction"
+            name="contactForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="updateContact" path="/updateContact.jsp"/>  
+        <forward name="insertContact" path="/insertContact.jsp"/> 
+        <forward name="newContact" path="/newContact.jsp"/> 
+        <forward name="editContact" path="/editContact.jsp"/>
+     </action>
+     
+    <action path="/checkout"
+            type="display.control.action.displayCheckoutAction"
+            name="shopCartForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="renewPermit" path="/permitRenew.jsp"/>
+      <forward name="start" path="/start.jsp"/>
+    </action>
+    
+    <action path="/completeCheckout"
+            type="display.control.action.displayCompleteCheckoutAction"
+            name="ownerForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+    </action>
+   
+   
+  </action-mappings>
+</struts-config>

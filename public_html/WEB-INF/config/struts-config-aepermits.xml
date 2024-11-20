@@ -1,0 +1,125 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="ownerForm" type="aepermits.control.form.DfbsOwnerForm"/>
+    <form-bean name="ownerApplicationForm" type="aepermits.control.form.DfbsOwnerForm"/>
+    <form-bean name="permitForm" type="aepermits.control.form.DfbsEntrPermitForm"/>
+    <form-bean name="specialForm" type="aepermits.control.form.DfbsSpecialForm"/>
+    <form-bean name="startForm" type="aepermits.control.form.DfbsStartForm"/>
+    <form-bean name="securityForm" type="main.control.form.ApplicationSecurityForm"/>
+    <form-bean name="shopCartForm" type="aepermits.control.form.ShoppingCartForm"/>
+  </form-beans>
+  <global-forwards>
+    <forward name="index" path="/main.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  
+  <action-mappings>
+   <action path="/start" type="aepermits.control.action.DfbsStartAction"
+            name="startForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/start.jsp"/>
+        <forward name="renewBy" path="/main.jsp"/>
+       <forward name="renewByStreetNumber" path="/main.jsp"/>
+       <forward name="renewByPermitNumber" path="/main.jsp"/>
+      <forward name="goToUpload" path="/application/uploadFile.jsp"/>
+      <forward name="sendEmailForm" path="/sendEmailForm.jsp"/>
+    </action>
+    <action path="/main" type="aepermits.control.action.DfbsEntrAction"
+            name="ownerForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="main" path="/main.jsp"/>
+      <forward name="view" path="/view.jsp"/>
+      <forward name="updateOwner" path="/application/updateOwner.jsp"/>
+      <forward name="sendEmailForm" path="/sendEmailForm.jsp"/>
+      <forward name="pdf" path="/pdf.do" contextRelative="true"/>
+      <forward name="goToUpload" path="/application/uploadFile.jsp"/>
+      <forward name="step2" path="/application/step2.jsp"/>
+    </action>
+    
+    <action path="/application"
+            type="aepermits.control.action.DfbsEntrApplicationAction"
+            name="ownerApplicationForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="intro" path="/application/intro.jsp"/>
+      <forward name="step1" path="/application/step1.jsp"/>
+      <forward name="step2" path="/application/step2.jsp"/>
+      <forward name="step2a" path="/application/step2a.jsp"/>
+      <forward name="step3" path="/application/step3.jsp"/>
+      <forward name="startOverForm" path="/application/startOverForm.jsp" />
+      <forward name="main" path="/main.do?method=refresh" />
+      
+    </action>
+    
+    <action path="/checkout"
+            type="aepermits.control.action.DfbsEntrCheckoutAction"
+            name="ownerApplicationForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="start" path="/start.jsp"/>
+    </action>
+    
+    <action path="/completeCheckout"
+            type="aepermits.control.action.DfbsEntrCompleteCheckoutAction"
+            name="ownerApplicationForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+    </action>
+    
+    <action path="/permit"
+            type="aepermits.control.action.DfbsEntrPermitAction"
+            name="permitForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="addPermitForm" path="/application/addPermitForm.jsp" />
+      <forward name="editPermitForm" path="/application/editPermitForm.jsp" />
+      <forward name="step2" path="/application.do?method=step2" />
+      <forward name="viewPermit" path="/application/viewPermit.jsp" />
+       <forward name="start" path="/start.jsp"/>
+       <forward name="updatePermit" path="/application/updatePermit.jsp"/>
+       <forward name="startPage" path="/start.jsp"/>
+       <forward name="goToUpload" path="/application/uploadFile.jsp"/>
+    </action>
+    <action path="/special"
+            type="aepermits.control.action.DfbsPermitSpecialAction"
+            name="specialForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="addSpecialForm" path="/application/specialForm.jsp" />
+      <forward name="editPermitForm" path="/permit.do?method=editPermitForm" />
+       <forward name="step2" path="/application.do?method=step2" />
+       <forward name="editSpecial" path="/application/specialForm.jsp" />
+       <forward name="viewSpecial" path="/application/viewSpecial.jsp" />
+       <forward name="updateSpecial" path="/application/updateSpecial.jsp" />
+       <forward name="updatePermit" path="/application/updatePermit.jsp"/>
+    </action>
+    
+   
+    <action path="/inspection" type="aepermits.hs.control.action.FireInspectionAction"
+            name="inspectionForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="inspectionList" path="/application/inspectionList.jsp"/> 
+       <forward name="updateInspection" path="/application/updateInspection.jsp"/> 
+       <forward name="newInspection" path="/application/newInspection.jsp"/>
+        <forward name="newInspectionBB" path="/application/newInspectionBB.jsp"/>
+        <forward name="confirmInspection" path="/application/confirmInspection.jsp"/>
+     </action>
+     
+     <action path="/violation" type="aepermits.hs.control.action.FireViolationAction"
+            name="violationForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="violationList" path="/application/violationList.jsp"/> 
+       <forward name="updateViolation" path="/application/updateViolation.jsp"/> 
+       <forward name="newViolation" path="/application/newViolation.jsp"/>
+      </action>
+     
+  </action-mappings>
+</struts-config>

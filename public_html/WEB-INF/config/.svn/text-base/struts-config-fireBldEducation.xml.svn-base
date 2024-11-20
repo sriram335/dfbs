@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+     <form-bean name="courseForm" type="FireBldEducation.control.form.FireBldEducationCourseForm"/>
+     <form-bean name="securityForm" type="main.control.form.ApplicationSecurityForm"/>
+      <form-bean name="userForm" type="FireBldEducation.control.form.FireBldEducationUserForm"/>
+  </form-beans>
+  <global-forwards>
+    <forward name="index" path="cigarette.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  <action-mappings>
+  
+    
+     <action path="/start" type="FireBldEducation.control.action.ApplicationNavigation"
+            name="courseForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+          <forward name="start" path="/start.jsp"/>
+          <forward name="registerOthers" path="/registerOthers.jsp"/>
+          <forward name="addNewUser" path="/addNewUser.jsp"/>
+          <forward name="courseAdmin" path="/courseAdmin.jsp"/>
+    </action>
+    
+    <action path="/course" type="FireBldEducation.control.action.FireBldEducationCourseAction"
+            name="courseForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="courseList" path="/codeCourse/courseList.jsp"/>
+       <forward name="newCourse" path="/codeCourse/newCourse.jsp"/>
+       <forward name="updateCourse" path="/codeCourse/updateCourse.jsp"/>
+       <forward name="courseAdmin" path="/courseAdmin.jsp"/>
+       <forward name="start" path="/start.jsp"/>
+       <forward name="manageUser" path="/user/manageUser.jsp"/>
+       <forward name="registerConfirmation" path="/codeCourse/courseList.jsp"/>
+       <forward name="cancelCourse" path="/codeCourse/cancelCourse.jsp"/>
+       <forward name="courseRoster" path="/codeCourse/courseRoster.jsp"/>   
+    </action>
+    
+        <action path="/logOn" type="main.control.action.ApplicationSecurityAction"
+            name="securityForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="start" path="/start.jsp"/>
+      <forward name="logOn" path="/loginPage.jsp"/>
+       </action>  
+
+      <action path="/user" type="FireBldEducation.control.action.FireBldEducationUserAction"
+            name="userForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="addNewUser" path="/user/addNewUser.jsp"/>
+       <forward name="logOn" path="/user/loginPage.jsp"/>
+        <forward name="courseAdmin" path="/courseAdmin.jsp"/>
+        <forward name="selectUserType" path="/user/selectUserType.jsp"/>
+        <forward name="manageUser" path="/user/manageUser.jsp"/>
+        <forward name="changePassword" path="/user/changePassword.jsp"/>
+        <forward name="updateUser" path="/user/updateUser.jsp"/>
+        <forward name="userList" path="/user/userList.jsp"/>
+        <forward name="classList" path="/user/classList.jsp"/>
+        <forward name="emailPasswordPage" path="/user/emailPasswordPage.jsp"/>
+        <forward name="start" path="/start.jsp"/>
+        <forward name="userIdLookup" path="/user/forgotUserId.jsp"/>
+    </action>
+   
+   
+      </action-mappings>
+</struts-config>

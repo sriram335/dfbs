@@ -1,0 +1,683 @@
+/* -----------------------------------------------------------------------------
+iGMS - Default Stylesheet
+Author: Dennis Leonardo (May 2005)
+------------------------------------------------------------------------------*/
+
+@import url("undohtml.css");
+
+body {
+    color: #000; 
+    font-family: verdana, arial, sans-serif;
+    margin: 0px 20px 20px 20px;
+    padding: 0px;
+    font-size: small;
+    line-height: 1.5em;
+    text-align:center;
+  background-color: rgb(198,198,198);
+}
+
+#pageBox {
+  text-align:left;
+  margin-bottom: 30px;
+}
+
+.fixed {
+  width: 750px;
+  margin: 0px auto 0px auto;
+}
+
+
+
+/* =HEADER
+------------------------------------------------------------------------------*/
+
+#headBox {
+  height: 80px;
+  padding: 0px;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+#headBox h1{
+  font-family: verdana, arial, sans-serif;
+  font-weight: bold;
+  font-size: large;
+  margin: 0px;
+  padding: 0px;
+  text-align: left;
+   color: #3c3c3c;
+}
+#headBox h1 a:link { text-decoration: none;}
+#headBox h1 a:visited { text-decoration: none; }
+#headBox h1 a:hover { text-decoration: none;  background: none;} 
+#headBox h1 a:active { text-decoration: none; }
+
+
+#subHeadBox1 {
+   float: left;
+   margin: 0px 0px 0px 0px;
+}
+#subHeadBox1 h2{
+  font-family: arial, sans-serif;
+  font-weight: bold;
+  font-size: large;
+  color: #3c3c3c;
+  margin-top: 7px;
+}
+#subHeadBox2 {
+  float: right;
+   margin: 5px 0px 0px 0px;
+   text-align: left;
+   font-size: x-small;
+}
+#subHeadBox2 .info {
+  font-weight: bold;
+} 
+#subHeadBox3{
+  float: left;
+} 
+
+
+
+/* =FOOTER
+------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+/* =LINKS
+------------------------------------------------------------------------------*/
+a:link { text-decoration: underline; color: blue; } 
+a:visited { text-decoration: underline; color: blue; } 
+a:active { text-decoration: underline; color: blue;  } 
+a:hover { text-decoration: underline; color: #fff; background:  #3c3c3c;} 
+a:link.selected { text-decoration: underline; color: #fff; background:  #3c3c3c; } 
+a:visited.selected { text-decoration: underline; color: #fff; background:  #3c3c3c; } 
+
+#exit1,#exit2 {
+  text-align: right;
+   background: url(/hs/img/exit_arrow.gif) top right no-repeat; 
+   font-weight: bold;
+  
+}
+
+
+#exit1 a:link,#exit2 a:link {
+  padding: 0px 25px 0px 25px;
+  margin: 0px;
+  font-weight: bold;
+}
+#exit1 a:visited,#exit2 a:visited {
+  padding: 0px 25px 0px 25px;
+}
+
+#exit1 a:hover,#exit2 a:hover {
+  padding: 0px 25px 0px 25px;
+}
+
+
+.control a:link {
+  font-weight: bold;
+  padding: 2px 15px 2px 15px;
+  margin: 0px;
+  text-decoration: none;
+
+}
+.control a:visited {
+  font-weight: bold;
+  padding: 2px 15px 2px 15px;
+  margin: 0px;
+  text-decoration: none;
+}
+.control a:hover {
+  font-weight: bold;
+  padding: 2px 15px 2px 15px;
+  margin: 0px;
+  text-decoration: none;
+}
+
+#breadCrumbs {
+   margin: 0px 0px 5px 0px;
+   text-align: left;
+   font-size: x-small;
+}
+
+
+/* =MAIN
+------------------------------------------------------------------------------*/
+
+#mainBox { 
+  
+  margin: 0px 0px 20px 20px;
+  padding: 0px;
+}
+
+#sideContentFluid { 
+  
+  float: right;
+  width: 33%;
+  margin-top: 10px;
+  padding: 10px 10px 10px 10px;
+}
+
+
+#mainContentFluid { 
+  float: left;
+  width: 64%;
+}
+
+#rightContentFluid { 
+
+  
+
+  float: right;
+
+  width: 45%;
+
+  padding: 10px;
+
+}
+
+
+
+
+
+#leftContentFluid { 
+
+  float: left;
+
+  width: 45%;
+
+  padding: 10px;
+
+}
+
+
+div.clearer {
+    clear: both;
+    line-height: 0px;
+    height: 0px;
+}
+/* =HEADINGS
+------------------------------------------------------------------------------*/
+h1 {
+    font-family: georgia, times, serif;
+    font-size: x-large;
+    font-weight: normal;
+}
+h2 {
+  margin: 30px 0px 30px 0px;
+  font-size: large;
+  font-weight: bold;
+}
+h3 {
+    font-size: medium;
+    font-weight: bold;
+    margin: 20px 0px 20px 0px;
+}
+h4 {
+    font-size: small;
+    font-weight: bold;
+}
+h3.total {
+  font-weight: bold;
+}
+/* =TABLE
+------------------------------------------------------------------------------*/
+table {
+  border: 1px solid #505050;
+  margin-top: 10px;
+}
+table.noBorder .rowHeader th {background: none;}
+th {
+  border-bottom: 1px solid #505050;
+  border-right: 1px solid #505050;
+  padding-right: 5px;
+  vertical-align: top;
+  font-size: small;
+  font-weight: bold;
+  text-align: center;
+  background: #ccc;
+}
+.rowHeader th {
+  text-align: right;
+   background: #ddd; 
+}
+td {
+ border-bottom: 1px solid #505050;
+  border-right: 1px solid #505050;
+  padding-right: 5px;
+  vertical-align: top;
+  padding-left: 10px;
+  vertical-align: top;
+  font-size: 90%;
+}
+td.label {
+  text-align: right;
+  font-weight: bold;
+}
+td.complete a:link {
+  text-decoration: none;
+}
+td.complete a:visited {
+  text-decoration: none;
+}
+td.complete a:hover {
+  text-decoration: none;
+}
+/* Sortable tables */
+table.sortable a.sortheader {
+    font-weight: bold;
+    text-decoration: none;
+}
+table.sortable span.sortarrow {
+    font-weight: bolder;
+    text-decoration: none;
+}
+caption {
+  text-align: left;
+  font-weight: bold;
+}
+table.noBorder { border: none; }
+table.noBorder td { border: none; padding-top: 10px;}
+table.noBorder tr { border: none; }
+table.noBorder th { border: none; padding-top: 10px; }
+
+table.withBorder {
+  border: 1px solid #505050;
+  margin-top: 10px;
+}
+
+table.withBorder th {
+  border-bottom: 1px solid #505050;
+  border-right: 1px solid #505050;
+  padding-right: 5px;
+  vertical-align: top;
+  font-size: small;
+  font-weight: bold;
+  text-align: center;
+  background: #ccc;
+}
+
+table.withBorder td {
+  border-bottom: 1px solid #505050;
+  border-right: 1px solid #505050;
+  padding-right: 5px;
+  vertical-align: top;
+  padding-left: 10px;
+  vertical-align: top;
+  font-size: 90%;
+}
+
+/* =FORM
+------------------------------------------------------------------------------*/
+
+input {
+  font-family: courier, monospace;
+  border: 1px solid black;
+}
+input.switch {
+  border: 1px solid black;
+}
+input.button {
+  background: #5c5c5c; 
+  color: #fff;
+  font-family: verdana, arial, sans-serif;
+  border: 1px solid #000;
+  font-weight: bold;
+  padding: 2px 2px 2px 2px;
+  margin: 0px;
+  text-decoration: none;
+}
+
+input.button2 {
+  background: #fff; 
+  color: blue;
+  font-family: verdana, arial, sans-serif;
+  border: none;
+  font-weight: bold;
+  padding: 0px;
+  margin: 0px;
+  text-decoration: underline;
+}
+button {
+  background: #5c5c5c; 
+  color: #fff;
+  font-family: verdana, arial, sans-serif;
+  border: 1px solid #000;
+  font-weight: bold;
+  padding: 2px 2px 2px 2px;
+  margin: 0px;
+  text-decoration: none;
+}
+
+input.smallButton {
+  font-family: verdana, arial, sans-serif;
+  background: none;
+  border: none;
+  font-weight: normal;
+  font-size: x-small;
+  color: blue;
+  margin: 0px;
+  text-decoration: none;
+}
+select {
+  font-family: verdana, sans-serif;
+  border: 1px solid #e5e5e5;
+  font-size: small;
+}
+
+/* =MISC
+------------------------------------------------------------------------------*/
+
+.lastItem { background-color: #edffcf; }
+.last { background-color: #edffcf; }
+.selected { background-color: #edffcf; }
+.message { color: green; }
+.required { color: #B20130; }
+
+.currentDoc { background-color: #FAD98F; }
+
+
+.row2 { background-color: #eee; }
+.row1 { background-color: #fff; }
+.rowError { background-color: #FF6A88; }
+
+
+ul li{ list-style-type: circle; }
+li {margin-left: 15px;}
+
+.error { color: red; }
+.message {
+  color: green;
+}
+.notice {
+  color: #691768;
+}
+
+.messageBox {
+   border: solid #E2C400 1px;
+   padding: 10px;
+   background-color: #fffccc;
+   margin-bottom: 20px;
+}
+.iconNotice {
+background-color:#691768;
+background-image: url(/dfbs/aepermits/img/clearbits/bg_rounded.gif);
+background-repeat: no-repeat;
+margin-top: 5px;
+}
+
+.iconTrue {
+background-color:#008C00;
+background-image: url(/dfbs/aepermits/img/clearbits/bg_rounded.gif);
+background-repeat: no-repeat;
+margin-top: 5px;
+}
+
+.iconFalse {
+background-color:#FF1A00;
+background-image: url(/dfbs/aepermits/img/clearbits/bg_rounded.gif);
+background-repeat: no-repeat;
+margin-top: 5px;
+}
+
+.icon {
+background-color:#000;
+background-image: url(/dfbs/aepermits/img/clearbits/bg_rounded.gif);
+background-repeat: no-repeat;
+}
+
+.icon2 {
+  background-color:#505050;
+  background-image: url(/dfbs/aepermits/img/clearbits/bg_rounded.gif);
+  background-repeat: no-repeat;
+}
+
+.icon3 {
+  background-color:#a5a5a5;
+  background-image: url(/dfbs/aepermits/img/clearbits/bg_rounded.gif);
+  background-repeat: no-repeat;
+}
+
+
+
+/* =LISTING
+------------------------------------------------------------------------------*/
+
+.listing {
+  padding: 15px;
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.listing h3 {
+  font-family: arial,sans-serif;
+  font-size: medium;
+  font-weight: bold;
+}
+.listing h4 {
+  font-size: x-small;
+  margin-top: -15px;
+  font-weight: normal;
+}
+.listing p {
+  font-size: small;
+  margin-top: 5px;
+}
+.listingIndent {
+  margin-left: 20px;
+}
+.listingInfo {
+  margin-top: 2px;
+  font-weight: normal;
+  font-size: x-small;
+}
+
+
+
+
+.sideContentList ul li{
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0px 0px 20px;
+}
+
+.sideContentList ul li img{
+  margin-bottom: -2px;
+}
+
+.sideContentList ul li .eventTitle a{
+  font-family: verdana, arial, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0;
+  margin: 20px 0px 0px 0px;
+}
+
+
+
+
+.control a:link {
+  border: 1px solid #5c5c5c;
+  font-weight: bold;
+  text-decoration: none;
+  background:  #3c3c3c;
+  color: #fff;
+
+}
+.control a:visited {
+   border: 1px solid  #5c5c5c;
+  font-weight: bold;
+  text-decoration: none;
+  background:  #3c3c3c;
+  color: #fff;
+}
+.control a:hover {
+   border: 1px solid  #5c5c5c;
+  font-weight: bold;
+  text-decoration: none;
+  background: #fff;
+  color:  #3c3c3c;
+}
+
+.control2 a:link {
+  border: none;
+  font-weight: bold;
+  font-size: medium;
+}
+.control2 a:visited {
+  border: none;
+  font-weight: bold;
+  font-size: medium;
+}
+.control2 a:hover {
+  border: none;
+  font-weight: bold;
+  font-size: medium;
+}
+.controlSmall a:link {
+  border: none;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: x-small;
+}
+.controlSmall a:visited {
+  border: none;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: x-small;
+}
+.controlSmall a:hover {
+  border: none;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: x-small;
+}
+
+
+.info {
+  font-size: x-small;
+}
+
+
+ul.blockList li {
+  margin-top: 10px;
+}
+
+ul.inlineList{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+ul.inlineList li {
+  display: inline;
+  margin: 0px;
+  padding: 0px 20px 0px 20px;
+}
+
+blockquote  {
+    margin: 0px;
+    padding: 0px;
+}
+
+blockquote, q {
+    quotes: none;
+    padding-top: 15px;
+    padding-left: 35px;
+    display: block;
+    background: url(/dfbs/aepermits/img/quote-end.jpg) no-repeat;
+}
+
+.yellowBackground  { background-color: #fffccc; }
+.purpleBackground { background-color: #E5DAF7; }
+.greenBackground  { background-color: #B5F7D2; }
+.orangeBackground  { background-color: #FFC8A2; }
+.grayBackground  { background-color: #efefef; }
+.redBackground { background-color: #FF6A88; }
+
+tr.crossout td {
+  
+  text-decoration:line-through;
+  
+}
+
+.charNav {
+    border: 1px solid #c5c5c5;
+    background: #efefef;
+    padding: 10px;
+    margin-bottom: 20px;
+  
+}
+
+.navBox {
+    border: 1px solid #c5c5c5;
+    background: #efefef;
+    padding: 10px;
+    margin-bottom: 20px;
+  
+}
+
+
+.charNav ul {
+ 
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  display: inline; 
+}
+.charNav ul li {
+  display: inline;
+  margin: 0px;
+  padding: 5px;
+}
+
+.charNav ul li.selected { 
+   background-color: #fffccc;
+   font-size:x-large;
+   font-weight: bold;
+}
+
+.stepNav {
+    border: 1px solid #c5c5c5;
+    background: #efefef;
+    padding: 10px;
+    margin-bottom: 20px;
+    
+}
+
+.stepNav ul {
+ 
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+.stepNav ul li {
+  list-style-type: none;
+  margin: 0px;
+  padding: 5px;
+}
+
+.stepNav ul li.selected { 
+   background-color: #fffccc;
+   font-size:large;
+   font-weight: bold;
+}
+
+
+dl.modified dt { 
+  margin: 15px 0px 10px 0px;
+}
+
+dl.modified dd { 
+  margin: 5px;
+}
+
+dl.modified dt { 
+  font-weight: bold;
+   
+}

@@ -1,0 +1,265 @@
+<?xml version = '1.0' encoding = 'ISO-8859-1'?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
+<display-name>IDHS DFBS Web Application</display-name>
+  <description>IDHS DFBS Web Application</description>
+  <context-param>
+   <param-name>app_server</param-name>  
+     <!--   <param-value>http://127.0.0.1:7101</param-value>-->     
+   <!--   <param-value>http://10.90.29.65:7101</param-value>  -->    
+   
+   <!--  <param-value>http://5cg44435vc:9003</param-value> -->   
+    <param-value>https://myoracle.in.gov</param-value> 
+  </context-param>
+  <context-param>
+    <param-name>app_version</param-name>
+    <param-value>PROD</param-value>
+  </context-param>
+  <context-param>
+    <param-name>jndiString</param-name>
+    <param-value>jdbc/dhsp</param-value>
+  </context-param>
+  <resource-ref>
+    <description>The default DS</description>
+    <res-ref-name>jdbc/dhsp</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+   <context-param>
+    <param-name>checkout_password</param-name>
+    <!--test--><!-- <param-value>yQHnstlS</param-value>-->    
+   <!--prod-->    <param-value>XvAalSIk</param-value>
+  </context-param>
+  <!-- END DATABASE#1 CONFIG -->
+  <!-- START CHECKOUT CONFIG -->
+ 
+  <context-param>
+    <param-name>application_name</param-name>
+    <param-value>ai-dhs-education</param-value>
+  </context-param>
+  <context-param>
+    <param-name>application_name_fireworks</param-name>
+    <param-value>ai-dhs-firework_permit</param-value>
+  </context-param>
+  <context-param>
+    <param-name>application_name_aepermits</param-name>
+     <param-value>ai-dhs-amusements_permit</param-value>
+  </context-param>
+  <context-param>
+    <param-name>application_name_childcare</param-name>
+     <param-value>ai-dhs-childcare</param-value>
+      </context-param>
+ <context-param>
+      <param-name>application_name_display</param-name>
+     <param-value>ai-dhs-firedisplay</param-value>
+  </context-param>
+  <context-param>
+    <param-name>application_name_cigarette</param-name>
+    <param-value>ai-dhs-cigdist</param-value>
+  </context-param>
+  <context-param>
+    <param-name>application_name_code</param-name>
+    <param-value>ai-dhs-housing</param-value>
+   </context-param>
+   <context-param>
+    <param-name>application_name_hazmat</param-name>
+    <param-value>ai-dhs-radioactive</param-value>
+  </context-param>
+   <context-param>
+    <param-name>application_name_magazine</param-name>
+    <param-value>ai-dhs-explosive</param-value>
+  </context-param>
+  <context-param>
+    <param-name>application_name_rides</param-name>
+    <param-value>ai-dhs-rides</param-value>
+  </context-param>
+  <context-param>
+    <param-name>application_name_elevators</param-name>
+    <param-value>ai-dhs-elevator</param-value>
+  </context-param>
+  <context-param>
+    <param-name>application_name_bpv</param-name>
+    <param-value>ai-dhs-boilers</param-value>
+  </context-param>
+  <context-param>
+    <param-name>application_name_variance</param-name>
+    <param-value>ai-dhs-variance</param-value>
+  </context-param>
+  <context-param>
+    <param-name>application_name_blaster</param-name>
+    <param-value>ai-dhs-blaster</param-value>
+  </context-param>
+  <context-param>
+    <param-name>application_name_planReview</param-name>
+    <param-value>ai-dhs-drs</param-value>
+  </context-param>
+  <context-param>
+    <param-name>application_name_idhsFines</param-name>
+    <param-value>ai-dhs-cmh</param-value>
+  </context-param>
+  <context-param>
+    <param-name>checkout_username</param-name>
+    <param-value>kwikekard</param-value> 
+  </context-param>
+ 
+  <!-- END CHECKOUT CONFIG -->
+   
+  <listener>
+    <listener-class>main.control.DfbsContextListener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/config/struts-config.xml, /WEB-INF/config/struts-config-planReview.xml</param-value>
+    </init-param>
+     <init-param>
+      <param-name>config/main</param-name>
+      <param-value>/WEB-INF/config/struts-config-main.xml</param-value>
+    </init-param>
+     <init-param>
+      <param-name>config/codeEducation</param-name>
+      <param-value>/WEB-INF/config/struts-config-codeEducation.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/idhsInspections</param-name>
+      <param-value>/WEB-INF/config/struts-config-idhsInspections.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/planReview</param-name>
+      <param-value>/WEB-INF/config/struts-config-planReview.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/fireworks</param-name>
+      <param-value>/WEB-INF/config/struts-config-fireworks.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/aepermits</param-name>
+      <param-value>/WEB-INF/config/struts-config-aepermits.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/childCare</param-name>
+      <param-value>/WEB-INF/config/struts-config-childcare.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/display</param-name>
+      <param-value>/WEB-INF/config/struts-config-display.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/ems</param-name>
+      <param-value>/WEB-INF/config/struts-config-ems.xml</param-value>
+    </init-param>
+     <init-param>
+      <param-name>config/cigarette</param-name>
+      <param-value>/WEB-INF/config/struts-config-cigarette.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/code</param-name>
+      <param-value>/WEB-INF/config/struts-config-code.xml</param-value>
+    </init-param>
+     <init-param>
+      <param-name>config/arson</param-name>
+      <param-value>/WEB-INF/config/struts-config-arson.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/hazmat</param-name>
+      <param-value>/WEB-INF/config/struts-config-hazmat.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/magazine</param-name>
+      <param-value>/WEB-INF/config/struts-config-magazine.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/elevator</param-name>
+      <param-value>/WEB-INF/config/struts-config-elevator.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/idhsFeesFines</param-name>
+      <param-value>/WEB-INF/config/struts-config-fine.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/otherUsers</param-name>
+      <param-value>/WEB-INF/config/struts-config-others.xml</param-value>
+    </init-param>
+     <init-param>
+      <param-name>config/lepc</param-name>
+      <param-value>/WEB-INF/config/struts-config-lepc.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/ust</param-name>
+      <param-value>/WEB-INF/config/struts-config-ust.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/amuseRide</param-name>
+      <param-value>/WEB-INF/config/struts-config-amuseRide.xml</param-value>
+    </init-param>
+     <init-param>
+      <param-name>config/fireHouse</param-name>
+      <param-value>/WEB-INF/config/struts-config-fireHouse.xml</param-value>
+    </init-param>
+     <init-param>
+      <param-name>config/fireBldEducation</param-name>
+      <param-value>/WEB-INF/config/struts-config-fireBldEducation.xml</param-value>
+    </init-param>
+     <init-param>
+      <param-name>config/variance</param-name>
+      <param-value>/WEB-INF/config/struts-config-variance.xml</param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+    
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <session-config>
+    <session-timeout>480</session-timeout>
+  </session-config>
+  <mime-mapping>
+    <extension>html</extension>
+    <mime-type>text/html</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>txt</extension>
+    <mime-type>text/plain</mime-type>
+  </mime-mapping>
+  
+  <mime-mapping>
+    <extension>wsdl</extension>
+     <mime-type>text/xml</mime-type>
+  </mime-mapping>
+  
+  <mime-mapping>
+    <extension>xsd</extension>
+    <mime-type>text/xml</mime-type>
+  </mime-mapping>
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <error-page>
+    <error-code>400</error-code>
+    <location>/app/error404.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/app/error404.jsp</location>
+  </error-page>
+  <jsp-config>
+    <taglib>
+      <taglib-uri>/WEB-INF/hs.tld</taglib-uri>
+      <taglib-location>/WEB-INF/hs.tld</taglib-location>
+    </taglib>
+  </jsp-config>
+  
+</web-app>

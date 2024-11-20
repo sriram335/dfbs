@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/util/logging
+END
+DHSLogLevel.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/util/logging/DHSLogLevel.java
+END
+DHSLogger.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/util/logging/DHSLogger.java
+END
+DHSMessageObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/util/logging/DHSMessageObject.java
+END
+IDHSLogger.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/util/logging/IDHSLogger.java
+END
+Log.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/util/logging/Log.java
+END
+LogCategory.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/util/logging/LogCategory.java
+END

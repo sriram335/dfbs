@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="manufacturerForm" type="code.control.form.CodeManufacturerForm"/>
+    <form-bean name="manufacturerApplicationForm" type="code.control.form.CodeManufacturerForm"/>
+    <form-bean name="facilityForm" type="code.control.form.CodeFacilityForm"/>
+    <form-bean name="personForm" type="code.control.form.CodePersonForm"/>
+    <form-bean name="releaseForm" type="code.control.form.CodeReleaseForm"/>
+     <form-bean name="securityForm" type="main.control.form.ApplicationSecurityForm"/>
+      <form-bean name="sealForm" type="code.control.form.SealOrderForm"/>
+        <form-bean name="sealUsageForm" type="code.control.form.SealUsageForm"/>
+  </form-beans>
+  <global-forwards>
+    <forward name="index" path="/main.do" redirect="true" contextRelative="true"/>
+    <forward name="loginForm" path="/loginForm.do" contextRelative="true"/>
+    <forward name="error" path="/error500.do" contextRelative="true"/>
+    <forward name="message" path="/message.do" contextRelative="true"/>
+  </global-forwards>
+  <action-mappings>
+    <action path="/main" type="code.control.action.CodeAction"
+            name="manufacturerForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="main" path="/main.jsp"/>
+      <forward name="view" path="/view.jsp"/>
+      <forward name="sendEmailForm" path="/common/sendEmailForm.jsp"/>
+      <forward name="pdf" path="/pdf.do" contextRelative="true"/>
+      <forward name="editManufacturer" path="/application/manufacturer.jsp"/>
+      <forward name="viewRelease" path="/common/viewRelease.jsp"/>
+      <forward name="startOverForm" path="/application/startOverForm.jsp"/>
+      </action>
+   
+   <action path="/viewFacility" type="code.control.action.CodeFacilityAction"
+            name="facilityForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="viewFacility" path="/common/facilityDisplay.jsp"/>
+      <forward name="backtoview" path="/view.jsp"/>
+      <forward name="buySeals" path="/application/buySeals.jsp"/> 
+     <forward name="sealOrders" path="/common/sealOrders.jsp"/>  
+    </action>
+    
+    <action path="/newRelease" type="code.control.action.CodeReleaseAction"
+            name="releaseForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="newRelease" path="/common/newRelease.jsp"/>
+      <forward name="backtoview" path="/view.jsp"/>
+      <forward name="editRelease" path="/common/newRelease.jsp"/>
+      <forward name="goToUpload" path="/common/uploadFile.jsp"/>
+      <forward name="updateRelease" path="/common/updateRelease.jsp"/>
+      <forward name="addConditions" path="/common/addConditions.jsp"/>
+       <forward name="view" path="/view.jsp"/>
+     </action>
+    
+    <action path="/editPerson" type="code.control.action.CodePersonAction"
+            name="personForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="editPerson" path="/application/editPerson.jsp"/>
+      <forward name="backtoview" path="/view.jsp"/>
+       <forward name="viewFacility" path="/common/facilityDisplay.jsp"/>
+    </action>
+    
+    <action path="/seal" type="code.control.action.CodeSealsAction"
+            name="sealForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="processSeals" path="/common/processSeals.jsp"/>
+    </action>
+     <action path="/sealUsage" type="code.control.action.CodeSealUsageAction"
+            name="sealUsageForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+      <forward name="editSealUsage" path="/common/editSealUsage.jsp"/>
+    </action>
+    <action path="/checkout"
+            type="code.control.action.CodeCheckoutAction"
+            name="manufacturerApplicationForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+       <forward name="main" path="/main.jsp"/>
+       <forward name="view" path="/view.jsp"/>
+    </action>
+    
+    <action path="/completeCheckout"
+            type="code.control.action.CodeCompleteCheckoutAction"
+            name="manufacturerApplicationForm" scope="request"
+            className="hs.control.HsActionMapping">
+      <set-property property="actionId" value="0"/>
+    </action>
+    
+      
+    
+  </action-mappings>
+</struts-config>

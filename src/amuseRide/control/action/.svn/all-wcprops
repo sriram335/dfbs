@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/amuseRide/control/action
+END
+insuranceAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/amuseRide/control/action/insuranceAction.java
+END
+amuseRideCheckoutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/amuseRide/control/action/amuseRideCheckoutAction.java
+END
+amuseRideAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/amuseRide/control/action/amuseRideAction.java
+END
+amuseRideCompleteCheckoutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/amuseRide/control/action/amuseRideCompleteCheckoutAction.java
+END
+DfbsOwnerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/Dfbs/!svn/ver/18/trunk/dfbs/src/amuseRide/control/action/DfbsOwnerAction.java
+END
