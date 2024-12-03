@@ -6,6 +6,9 @@ public class HazmatPermitSQL
 {
    public final static String SELECT_NEXT_ORG_ID =
     "select organization_id.NEXTVAL from dual";
+
+    public final static String SELECT_NEXT_IMG_ID =
+            "select organization_id.NEXTVAL from dual";
     
    public final static String INSERT_ORGANIZATION =
    " INSERT INTO hazmat_transport_permit(ORGANIZATION_ID,ORGANIZATION_NAME,ORGANIZATION_CONTACT,ORG_CONTACT_TITLE, " +

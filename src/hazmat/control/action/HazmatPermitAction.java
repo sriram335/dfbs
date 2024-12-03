@@ -9,6 +9,7 @@ import org.apache.struts.util.*;
 import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import java.sql.Blob;
 import java.util.*;
 import main.to.*;
 import main.data.*;
@@ -46,7 +47,7 @@ public class HazmatPermitAction extends ControlAction
             HsUtilityDAO dfbsUtilityDAO = (HsUtilityDAO) dmap2.getHsDAO(DfbsDataMap.UTILITY);
             HazmatPermitDAO oDAO = (HazmatPermitDAO) dmap2.getHsDAO(DfbsDataMap.HAZMAT_ORG);
             ApplicationSecurityDAO sDAO = (ApplicationSecurityDAO) dmap2.getHsDAO(DfbsDataMap.DFBS_SECURITY);
-//            HazmatImageDAO iDAO= (HazmatImageDAO) dmap2.getHsDAO(DfbsDataMap.DFBS_IMAGES);
+            HazmatImageDAO iDAO= (HazmatImageDAO) dmap2.getHsDAO(DfbsDataMap.DFBS_IMAGES);
             String method = request.getParameter("method");
 
             HttpSession session = request.getSession();
@@ -174,6 +175,14 @@ public class HazmatPermitAction extends ControlAction
             }
             else if(method.equals("printAllPermits"))
             {
+
+                String deploymentPath1 = context.getRealPath("/");
+                String deploymentPath2 = context.getResource("/").getPath();
+                Blob signature=iDAO.getImageById(1).getImage();
+                Log.log("ACTION_LAYER", DHSLogLevel.INFO, "HazmatPermitAction", "printAllPermits",
+                        " SIGNATURE - " + " - BLOB - " +signature.toString());
+                Log.log("ACTION_LAYER", DHSLogLevel.INFO, "HazmatPermitAction", "printAllPermits",
+                        " Dynamic Deployment paths - "+ deploymentPath1 + " - war path - " +deploymentPath2);
 //                Log.log("ACTION_LAYER", DHSLogLevel.INFO, "HazmatPermitAction", "printAllPermits", "1-method.:"+ iDAO.getImageById(1).getImage());
                 System.out.println("Printing line 49"+ session.getServletContext().getContextPath());
 //                System.out.println(iDAO.getImageById(1).getImage());
@@ -223,10 +232,14 @@ public class HazmatPermitAction extends ControlAction
             */
                 HazmatPermitPdf pdf =
                         new HazmatPermitPdf(
-                                list,baos,realPath+"dhs_logo.jpg",
-                                realPath+"dhs_logo2.jpg",
-                                realPath+"fireMarshalSignature.gif",
-                                realPath+"insealcl.jpg");
+                                list,baos,deploymentPath1+"/WEB-INF/img/dhs_logo.jpg",
+                                deploymentPath1+"/WEB-INF/img/dhs_logo2.jpg",
+                                deploymentPath1+"/WEB-INF/img/fireMarshalSignature.gif",
+                                deploymentPath1+"/WEB-INF/img/insealcl.jpg");
+                if(pdf.signatureImg!=null) {
+                    Log.log("ACTION_LAYER", DHSLogLevel.INFO, "HazmatPermitAction", "printAllPermits",
+                            " SIGNATURE IMAGE IS:    - "+ pdf.signatureImg.toString() + "    This image is NOT NULL!!!");
+                }
              /*   list,baos,context.getRealPath("/WEB-INF/img/dhs_logo.jpg"),
                     context.getRealPath("/WEB-INF/img/dhs_logo2.jpg"),
                     context.getRealPath("/WEB-INF/img/fireMarshalSignature.gif"),

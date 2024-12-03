@@ -4,8 +4,6 @@ import hazmat.to.HazmatImage;
 import hs.data.HsDAO;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class HazmatImageDAO extends HsDAO {
     private Connection connection;
@@ -14,45 +12,65 @@ public class HazmatImageDAO extends HsDAO {
         this.connection = connection;
     }
 
-    public void saveImage(HazmatImage image) throws SQLException {
-        String sql = "INSERT INTO DFBS_IMAGES (id, name, image) VALUES (?, ?, ?)";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, image.getId());
-        statement.setString(2, image.getName());
-        statement.setBlob(3, image.getImage());
-        statement.executeUpdate();
-        statement.close();
+    public int insertImage(HazmatImage image) throws SQLException, Exception {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        try {
+            conn = getConnection();
+            conn.setAutoCommit(false);
+            int id = this.getId(conn, HazmatPermitSQL.SELECT_NEXT_IMG_ID);
+            image.setImage_Id(id);
+
+            pstmt.setString(2, image.getName());
+            pstmt.setString(3, image.getImageType());
+            pstmt.setBlob(4, image.getImage());
+            pstmt.setDate(5, image.getEffectiveDate());
+            pstmt.setString(6, image.getCreatedBy());
+            pstmt.setDate(7, image.getCreatedDate());
+
+            pstmt.execute();
+
+            conn.commit();
+            return id;
+        } catch (Exception ex) {
+            conn.rollback();
+            throw new Exception(ex.getMessage());
+        } finally {
+            try {
+                conn.close();
+                pstmt.close();
+            } catch (Exception e) {}
+        }
     }
 
-    public HazmatImage getImageById(int id) throws SQLException {
-        String sql = "SELECT * FROM DFBS_IMAGES WHERE id = ?";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, id);
-        ResultSet resultSet = statement.executeQuery();
-        HazmatImage image = null;
-        if (resultSet.next()) {
-            String name = resultSet.getString("name");
-            Blob img = resultSet.getBlob("image");
-            image = new HazmatImage(id, name, img);
-        }
-        resultSet.close();
-        statement.close();
-        return image;
-    }
+    public HazmatImage getImageById(int imageId) throws SQLException, Exception {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+            conn = getConnection();
+            String sql = "SELECT image_Id, name, imageType, image, effectiveDate, createdBy, createdDate FROM hazmat_images WHERE image_Id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, imageId);
+            rs = pstmt.executeQuery();
 
-    public List<HazmatImage> getAllImages() throws SQLException {
-        List<HazmatImage> images = new ArrayList<HazmatImage>();
-        String sql = "SELECT * FROM DFBS_IMAGES";
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(sql);
-        while (resultSet.next()) {
-            int id = resultSet.getInt("id");
-            String name = resultSet.getString("name");
-            Blob img = resultSet.getBlob("image");
-            images.add(new HazmatImage(id, name, img));
+            if (rs.next()) {
+                HazmatImage image = new HazmatImage();
+                image.setImage_Id(rs.getInt("image_Id"));
+                image.setName(rs.getString("name"));
+                image.setImageType(rs.getString("imageType"));
+                image.setImage(rs.getBlob("image"));
+                image.setEffectiveDate(rs.getDate("effectiveDate"));
+                image.setCreatedBy(rs.getString("createdBy"));
+                image.setCreatedDate(rs.getDate("createdDate"));
+                return image;
+            } else {
+                throw new Exception("Image with ID " + imageId + " not found");
+            }
+        } finally {
+            if (rs != null) try { rs.close(); } catch (Exception e) {}
+            if (pstmt != null) try { pstmt.close(); } catch (Exception e) {}
+            if (conn != null) try { conn.close(); } catch (Exception e) {}
         }
-        resultSet.close();
-        statement.close();
-        return images;
     }
 }
