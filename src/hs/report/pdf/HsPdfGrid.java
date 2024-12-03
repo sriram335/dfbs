@@ -104,8 +104,12 @@ public class HsPdfGrid
     }
     
   }
-  
-   public void addHeader(String title) throws Exception
+
+  public void setLogoImage(Image logoImage) {
+    this.logoImage = logoImage;
+  }
+
+  public void addHeader(String title) throws Exception
   {
     PdfPCell cell  = new PdfPCell();
     this.enableBorder(cell);

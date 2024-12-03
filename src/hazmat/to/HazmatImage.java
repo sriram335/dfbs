@@ -7,34 +7,20 @@ import java.io.Serializable;
 import java.sql.Date;
 
 public class HazmatImage extends HsCompleteContact implements Serializable {
-    private int image_Id;
+    private int imageId;
     private String name;
     private String imageType;
     private Blob image;
-    private Date effectiveDate;
-    private String createdBy;
-    private Date createdDate;
 
-    public HazmatImage(int image_Id, Date createdDate, String createdBy, Date effectiveDate, Blob image, String imageType, String name) {
-        this.image_Id = image_Id;
-        this.createdDate = createdDate;
-        this.createdBy = createdBy;
-        this.effectiveDate = effectiveDate;
-        this.image = image;
-        this.imageType = imageType;
-        this.name = name;
+    public HazmatImage() {
     }
 
-
-
-    public HazmatImage() {}
-
-    public int getImage_Id() {
-        return image_Id;
+    public int getImageId() {
+        return imageId;
     }
 
-    public void setImage_Id(int image_Id) {
-        this.image_Id = image_Id;
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
     }
 
     public String getName() {
@@ -62,33 +48,11 @@ public class HazmatImage extends HsCompleteContact implements Serializable {
     }
 
     @Override
-    public String getCreatedBy() {
-        return createdBy;
+    public String toString() {
+        return "HazmatImage{" +
+                "imageId=" + imageId +
+                ", name='" + name + '\'' +
+                ", imageType='" + imageType + '\'' +
+                '}';
     }
-
-    @Override
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Date getEffectiveDate() {
-        return effectiveDate;
-    }
-
-    public void setEffectiveDate(Date effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
-
-    @Override
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
-
-
-
 }

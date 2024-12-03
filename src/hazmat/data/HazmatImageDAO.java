@@ -1,76 +1,61 @@
 package hazmat.data;
 
+import com.lowagie.text.Image;
 import hazmat.to.HazmatImage;
 import hs.data.HsDAO;
 
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.sql.*;
 
 public class HazmatImageDAO extends HsDAO {
-    private Connection connection;
 
-    public HazmatImageDAO(Connection connection) {
-        this.connection = connection;
-    }
-
-    public int insertImage(HazmatImage image) throws SQLException, Exception {
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        try {
-            conn = getConnection();
-            conn.setAutoCommit(false);
-            int id = this.getId(conn, HazmatPermitSQL.SELECT_NEXT_IMG_ID);
-            image.setImage_Id(id);
-
-            pstmt.setString(2, image.getName());
-            pstmt.setString(3, image.getImageType());
-            pstmt.setBlob(4, image.getImage());
-            pstmt.setDate(5, image.getEffectiveDate());
-            pstmt.setString(6, image.getCreatedBy());
-            pstmt.setDate(7, image.getCreatedDate());
-
-            pstmt.execute();
-
-            conn.commit();
-            return id;
-        } catch (Exception ex) {
-            conn.rollback();
-            throw new Exception(ex.getMessage());
-        } finally {
-            try {
-                conn.close();
-                pstmt.close();
-            } catch (Exception e) {}
-        }
-    }
-
-    public HazmatImage getImageById(int imageId) throws SQLException, Exception {
+    public Image getImageById(String imageName) throws SQLException, Exception {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         try {
             conn = getConnection();
-            String sql = "SELECT image_Id, name, imageType, image, effectiveDate, createdBy, createdDate FROM hazmat_images WHERE image_Id = ?";
+            String sql = "SELECT image_id, name, image_type, image FROM hazmat_images WHERE name = ?";
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, imageId);
+            pstmt.setString(1, imageName);
             rs = pstmt.executeQuery();
 
             if (rs.next()) {
                 HazmatImage image = new HazmatImage();
-                image.setImage_Id(rs.getInt("image_Id"));
+                image.setImageId(rs.getInt("image_id"));
                 image.setName(rs.getString("name"));
-                image.setImageType(rs.getString("imageType"));
+                image.setImageType(rs.getString("image_type"));
                 image.setImage(rs.getBlob("image"));
-                image.setEffectiveDate(rs.getDate("effectiveDate"));
-                image.setCreatedBy(rs.getString("createdBy"));
-                image.setCreatedDate(rs.getDate("createdDate"));
-                return image;
+
+                Blob blob = image.getImage();
+                if (blob != null) {
+                    InputStream inputStream = blob.getBinaryStream();
+                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                    byte[] buffer = new byte[1024];
+                    int bytesRead;
+                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+                    byte[] imageBytes = outputStream.toByteArray();
+
+                    Image finalImage = Image.getInstance(imageBytes);
+
+                    System.out.println("Loaded Image " + image);
+                    System.out.println("Image width: " + finalImage.getWidth());
+                    System.out.println("Image height: " + finalImage.getHeight());
+
+                    inputStream.close();
+                    outputStream.close();
+                }
+
             } else {
-                throw new Exception("Image with ID " + imageId + " not found");
+                throw new Exception("Image with ID " + imageName + " not found");
             }
         } finally {
-            if (rs != null) try { rs.close(); } catch (Exception e) {}
-            if (pstmt != null) try { pstmt.close(); } catch (Exception e) {}
-            if (conn != null) try { conn.close(); } catch (Exception e) {}
+            if (rs != null) try { rs.close(); } catch (Exception ignored) {}
+            if (pstmt != null) try { pstmt.close(); } catch (Exception ignored) {}
+            if (conn != null) try { conn.close(); } catch (Exception ignored) {}
         }
     }
 }

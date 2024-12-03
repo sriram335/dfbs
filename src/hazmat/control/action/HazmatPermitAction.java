@@ -157,10 +157,11 @@ public class HazmatPermitAction extends ControlAction
 
                 HazmatPermitPdf pdf =
                         new HazmatPermitPdf(
-                                list,baos,realPath+"dhs_logo.jpg",
-                                realPath+"dhs_logo2.jpg",
-                                realPath+"fireMarshalSignature.gif",
-                                realPath+"insealcl.jpg");
+                                list,baos,
+                                iDAO.getImageById("dhs_logo.jpg"),
+                                iDAO.getImageById("dhs_logo2.jpg"),
+                                iDAO.getImageById("fireMarshalSignature.gif"),
+                                iDAO.getImageById("insealcl.jpg"));
 
         /*
          HazmatPermitPdf pdf =
@@ -176,13 +177,12 @@ public class HazmatPermitAction extends ControlAction
             else if(method.equals("printAllPermits"))
             {
 
-                String deploymentPath1 = context.getRealPath("/");
-                String deploymentPath2 = context.getResource("/").getPath();
-                Blob signature=iDAO.getImageById(1).getImage();
-                Log.log("ACTION_LAYER", DHSLogLevel.INFO, "HazmatPermitAction", "printAllPermits",
-                        " SIGNATURE - " + " - BLOB - " +signature.toString());
-                Log.log("ACTION_LAYER", DHSLogLevel.INFO, "HazmatPermitAction", "printAllPermits",
-                        " Dynamic Deployment paths - "+ deploymentPath1 + " - war path - " +deploymentPath2);
+//                String deploymentPath1 = context.getRealPath("/");
+//                String deploymentPath2 = context.getResource("/").getPath();
+//
+//                Log.log("ACTION_LAYER", DHSLogLevel.INFO, "HazmatPermitAction", "printAllPermits",
+//                        " Dynamic Deployment paths - "+ deploymentPath1 + " - war path - " +deploymentPath2);
+
 //                Log.log("ACTION_LAYER", DHSLogLevel.INFO, "HazmatPermitAction", "printAllPermits", "1-method.:"+ iDAO.getImageById(1).getImage());
                 System.out.println("Printing line 49"+ session.getServletContext().getContextPath());
 //                System.out.println(iDAO.getImageById(1).getImage());
@@ -231,11 +231,11 @@ public class HazmatPermitAction extends ControlAction
                  context.getContextPath()+"/img/insealcl.jpg");
             */
                 HazmatPermitPdf pdf =
-                        new HazmatPermitPdf(
-                                list,baos,deploymentPath1+"/WEB-INF/img/dhs_logo.jpg",
-                                deploymentPath1+"/WEB-INF/img/dhs_logo2.jpg",
-                                deploymentPath1+"/WEB-INF/img/fireMarshalSignature.gif",
-                                deploymentPath1+"/WEB-INF/img/insealcl.jpg");
+                        new HazmatPermitPdf(list,baos,
+                                iDAO.getImageById("dhs_logo.jpg"),
+                                iDAO.getImageById("dhs_logo2.jpg"),
+                                iDAO.getImageById("fireMarshalSignature.gif"),
+                                iDAO.getImageById("insealcl.jpg"));
                 if(pdf.signatureImg!=null) {
                     Log.log("ACTION_LAYER", DHSLogLevel.INFO, "HazmatPermitAction", "printAllPermits",
                             " SIGNATURE IMAGE IS:    - "+ pdf.signatureImg.toString() + "    This image is NOT NULL!!!");

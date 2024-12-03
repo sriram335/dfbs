@@ -16,29 +16,20 @@ import hs.util.*;
 public class  HazmatPermitPdf extends HsPdf
 {
 
-
-
-
     private java.util.List listOfPermits = null;
     HsPdfGrid grid = null;
 
     Image signatureImg = null;
 
-    public  HazmatPermitPdf(java.util.List list,OutputStream os,String logo,String watermarkPath,String signturePath, String stateSealPath ) throws Exception
+    public  HazmatPermitPdf(java.util.List list,OutputStream os,Image logo,Image watermark,Image signature, Image stateSealPath ) throws Exception
     {
         super(os);
         listOfPermits = list;
         grid = new HsPdfGrid(6);
         grid.setLogoImage(logo);
-        //grid.setStateSealImage(stateSealPath);
-        this.setWatermarkImage(watermarkPath,85,140);
-
-        try{
-            signatureImg = Image.getInstance(signturePath);
-        } catch (Exception e)
-        {
-            signatureImg = null;
-        }
+        watermarkImage = watermark;
+        watermarkImage.setAbsolutePosition(85,140);
+        signatureImg = signature;
 
     }
 
