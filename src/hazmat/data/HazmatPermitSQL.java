@@ -119,6 +119,14 @@ public class HazmatPermitSQL
     " from hazmat_transport_permit htp,hazmat_carrier hc, hazmat_shipment hs " +
     " where htp.organization_id=hc.organization_id and " +
     " hc.carrier_id=hs.carrier_id and to_char(hs.shipment_date,'mmyyyy')=? order by hs.shipment_date desc";
+    public final static String SELECT_ORG_BY_PERMIT_NUMBER =
+            " select htp.organization_name,htp.address1,htp.address2,htp.city,htp.state,htp.zip, " +
+                    " hc.carrier_name,hs.amount_shipped,hs.shipment_origin,hs.shipment_destination, " +
+                    " hs.radio_active_level,hs.shipment_date,hs.permit_number,hs.issue_date,hs.expiration_date, " +
+                    " htp.organization_id,hc.carrier_id,hs.shipment_id,hs.fee_id ,htp.email" +
+                    " from hazmat_transport_permit htp,hazmat_carrier hc, hazmat_shipment hs " +
+                    " where htp.organization_id=hc.organization_id and " +
+                    " hc.carrier_id=hs.carrier_id and hs.permit_number=? order by hs.shipment_date desc";
    
     public final static String SELECT_ORG_BY_ID =
     " SELECT ORGANIZATION_NAME,ORGANIZATION_CONTACT,ORG_CONTACT_TITLE,ADDRESS1 ," +

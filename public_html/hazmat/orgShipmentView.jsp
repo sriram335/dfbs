@@ -20,22 +20,31 @@
 
   
     
-    <h2>More Filter Options</h2>
-             
-          <p>
-          <html:form action="/orgShipmentView" method="get" styleId="filterByTimePeriod">
-          <input type="hidden"  name="method" value="filter" />
-          <input type="hidden"  name="filter" value="byTimePeriod" />
-          permit month year: <html:select property="monthYear" onchange="submitForm('filterByTimePeriod')">
-           <html:option value="">-----</html:option>
-            <html:options 
-              collection="ORG_TIME_PERIOD_OPTIONS" 
-              property="value" 
-              labelProperty="label" />
-          </html:select>
-          <input type="submit" value="get" class="smallButton" />
-          </html:form>
-          </p>    
+        <h2>More Filter Options</h2>
+
+              <p>
+              </p><html:form action="/orgShipmentView" method="get" styleId="filterByTimePeriod">
+              <input type="hidden"  name="method" value="filter" />
+              <input type="hidden"  name="filter" value="byTimePeriod" />
+              permit month year: <html:select property="monthYear" onchange="submitForm('filterByTimePeriod')">
+               <html:option value="">-----</html:option>
+                <html:options
+                  collection="ORG_TIME_PERIOD_OPTIONS"
+                  property="value"
+                  labelProperty="label" />
+              </html:select>
+              <input type="submit" value="get" class="smallButton" />
+              </html:form>
+              </p>
+
+              <p>
+              <html:form action="/orgShipmentView" method="get" styleId="filterByPermitNumber">
+              <input type="hidden"  name="method" value="filter" />
+              <input type="hidden"  name="filter" value="byPermitNumber" />
+               Permit Receipt Number: <html:text size="30" maxlength="30" property="permitNumber"/>
+              <input type="submit" value="get" class="smallButton" />
+              </html:form>
+              </p>
      
 </div>
 
